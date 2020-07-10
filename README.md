@@ -34,8 +34,11 @@ Things you may want to cover:
 |first_name|string|null:false|
 |last_name_japanese|string|null:false|
 |first_name_japanese|string|null:false|
-|birthday|integer|null:false|
-<!-- |comment|integer|null:false , foreign_key:true| -->
+|birth_year|string|null:false|
+|birth_month|string|null:false|
+|birth_day|integer|null:false|
+<!-- |comment_id|integer|null:false , foreign_key:true| -->
+<!-- addressesテーブルとcardsテーブルの外部キーはどうするか？ -->
 
 ### Association
 
@@ -49,12 +52,12 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|integer|null:false|
-|prefecture|integer|null:false , foreign_key:tue|
+|prefectures_id|references|null:false , foreign_key:tue|
 |municipalities|string|null:false|
 |house_number|string|null:false|
-|buildingname_and_roomnumber|string|
-|tel|integer|
-|user_id|integer|null:false , foreign_key:true|
+|buildingname_and_roomnumber|string||
+|tel|integer||
+|user_id|references|null:false , foreign_key:true|
 
 ### Association
 
@@ -66,7 +69,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false , foreign_key:true|
+|user_id|references|null:false , foreign_key:true|
 |customer_id|string|null:false , unique:true|
 |card_id|string|null:false , unique:true|
 
@@ -79,8 +82,9 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|text｜text｜
-|user_id|integer|null:false , foreign_key:true|
+|text｜text｜|
+|user_id|references|null:false , foreign_key:true|
+|item_id|references|null:false , foreign_key:true|
 
 ### Association
 
@@ -94,14 +98,14 @@ Things you may want to cover:
 ｜name|string|null:false|
 |price|integer|null:false|
 |text|text|null:false|
-|image_id|integer|null:false|
-<!-- |comment_id|integer|null:false , foreign_key:true| -->
-|brand_id|integer|null:false , foreign_key:true|
-|status|integer|null:false , foreign_key:true|
-|burden_id|integer|null:false , foreign_key:true|
-|prefecture_id|null:false , foreign_key:true|
-|days_id|null:false , foreign_key:true|
-|user_id|null:false , foreign_key:true|
+|image_id|references|null:false|
+<!-- |comment_id|references|null:false , foreign_key:true| -->
+|brand_id|references|null:false , foreign_key:true|
+|status_id|references|null:false , foreign_key:true|
+|burden_id|references|null:false , foreign_key:true|
+|prefecture_id|references|null:false , foreign_key:true|
+|days_id|references|null:false , foreign_key:true|
+|user_id|references|null:false , foreign_key:true|
 
 ### Association
 
@@ -121,8 +125,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|item_id|integer|null:false , foreign_key|
-|categories|integer|null:false , foreign_key:true|
+|item_id|references|null:false , foreign_key|
+|categories|references|null:false , foreign_key:true|
 
 
 ### Association
@@ -148,7 +152,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null:false|
-|item_id|integer|null:false , foreign_key:true|
+<!-- |item_id|references|null:false , foreign_key:true| -->
 
 
 ### Association
@@ -160,7 +164,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
-|item_id|integer|null:false , foreign_key:true|
+<!-- |item_id|references|null:false , foreign_key:true| -->
 
 
 ### Association
@@ -172,7 +176,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |status|string|null:false|
-|item_id|imteger|null:false , foreign_key:true|
+<!-- |item_id|references|null:false , foreign_key:true| -->
 
 
 ### Association
@@ -184,7 +188,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |burden|string|null:false|
-|item_id|integer|null:false , foreign_key|
+<!-- |item_id|references|null:false , foreign_key| -->
 
 
 ### Association 
@@ -196,7 +200,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |prefecture|string|null:false|
-|item_id|integer|null:false , foreign_key:true|
+<!-- |item_id|references|null:false , foreign_key:true| -->
 
 
 ### Association
@@ -210,9 +214,9 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |days|string|null:false|
-|item_id|integer|null:false , foreign_key:true|
+<!-- |item_id|references|null:false , foreign_key:true| -->
 
 
 ### Association
 
-- has_many : items
+- has_many : 
