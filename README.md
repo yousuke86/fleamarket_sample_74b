@@ -32,28 +32,30 @@ Things you may want to cover:
 |password|string|null:false , unique:true| <!-- 7文字以上 -->
 |last_name|string|null:false|
 |first_name|string|null:false|
-|last_name_japanese|string|null:false|
-|first_name_japanese|string|null:false|
-|birth_year|string|null:false|
-|birth_month|string|null:false|
-|birth_day|integer|null:false|
-<!-- |comment_id|integer|null:false , foreign_key:true| -->
-<!-- addressesテーブルとcardsテーブルの外部キーはどうするか？ -->
+|last_name_kana|string|null:false|
+|first_name_kana|string|null:false|
+|birth_year|date|null:false|
+|birth_month|date|null:false|
+|birth_day|date|null:false|
 
 ### Association
 
-- has_many : addresses
+- has_many : sending_destinations
 - has_many : cards
-- has_many : commments
+- has_many : comments
 - has_many : items
 
-## addresses テーブル
+## sending_destinations テーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|integer|null:false|
-|prefectures_id|references|null:false , foreign_key:tue|
-|municipalities|string|null:false|
+|destination_last_name|string|null:false|
+|destination_first_name|string|null:false|
+|destination_last_name_kana|string|null:false|
+|destination_first_name_kana|string|null:false|
+|post_code|integer|null:false|
+|prefectures_id|references|null:false , foreign_key:true|
+|city|string|null:false|
 |house_number|string|null:false|
 |buildingname_and_roomnumber|string||
 |tel|integer||
@@ -82,7 +84,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|text｜text｜|
+|comment|text||
 |user_id|references|null:false , foreign_key:true|
 |item_id|references|null:false , foreign_key:true|
 
@@ -97,36 +99,36 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null:false|
 |price|integer|null:false|
-|text|text|null:false|
-|image_id|references|null:false|
+|introduction|text|null:false|
 |brand_id|references|null:false , foreign_key:true|
 |status_id|references|null:false , foreign_key:true|
-|burden_id|references|null:false , foreign_key:true|
+|postage_type_id|references|null:false , foreign_key:true|
 |prefecture_id|references|null:false , foreign_key:true|
-|days_id|references|null:false , foreign_key:true|
-|user_id|references|null:false , foreign_key:true|
-<!-- |comment_id|references|null:false , foreign_key:true| -->
+|need_day_id|references|null:false , foreign_key:true|
+|user_seller_id|references|null:false , foreign_key|
+|user_buyer_id|references|null:false , foreign_key|
+
 
 ### Association
 
 - belongs_to : user
 - has_many : comments
 - has_many : categories, through : items-categories
-- has_many : item-categories
+- has_many : items-categories
 - has_many : images
 - belongs_to : brand
 - belongs_to : status
-- belongs_to : burden
+- belongs_to : postage_type
 - belongs_to : prefecture
-- belongs_to : days
+- belongs_to : need_day
 
 
 ## items-categories 中間テーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|item_id|references|null:false , foreign_key|
-|categories|references|null:false , foreign_key:true|
+|item_id|references|null:false , foreign_key:true|
+|category_id|references|null:false , foreign_key:true|
 
 
 ### Association
@@ -135,7 +137,7 @@ Things you may want to cover:
 - belongs_to : category
 
 
-## categories テーブル
+## categories テーブル 
 
 |Column|Type|Options|
 |------|----|-------|
@@ -151,20 +153,20 @@ Things you may want to cover:
 ## images テーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null:false|
-<!-- |item_id|references|null:false , foreign_key:true| -->
+|image_url|string|null:false|
+|item_id|references|null:false , foreign_key:true|
 
 
 ### Association
 
-- belongs_to : items
+- belongs_to : item
 
 
 ## brands テーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
-<!-- |item_id|references|null:false , foreign_key:true| -->
+
 
 
 ### Association
@@ -172,23 +174,22 @@ Things you may want to cover:
 - has_many : items
 
 
-## statuses テーブル
+## statuses テーブル (active_hash)
 |Column|Type|Options|
 |------|----|-------|
 |status|string|null:false|
-<!-- |item_id|references|null:false , foreign_key:true| -->
+
 
 
 ### Association
 
-- belongs_to : items
+- has_many : items
 
 
-## burdens テーブル
+## postage_types テーブル  (active_hash)
 |Column|Type|Options|
 |------|----|-------|
-|burden|string|null:false|
-<!-- |item_id|references|null:false , foreign_key| -->
+|postage_type|string|null:false|
 
 
 ### Association 
@@ -196,11 +197,11 @@ Things you may want to cover:
 - has_many : items
 
 
-## prefectures テーブル
+## prefectures テーブル (active_hash)
 |Column|Type|Options|
 |------|----|-------|
 |prefecture|string|null:false|
-<!-- |item_id|references|null:false , foreign_key:true| -->
+
 
 
 ### Association
@@ -209,12 +210,12 @@ Things you may want to cover:
 - has_many : items
 
 
-## days テーブル
+## need_days テーブル (active_hash)
 
 |Column|Type|Options|
 |------|----|-------|
-|days|string|null:false|
-<!-- |item_id|references|null:false , foreign_key:true| -->
+|need_day|string|null:false
+
 
 
 ### Association
