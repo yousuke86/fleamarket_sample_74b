@@ -42,10 +42,10 @@ Things you may want to cover:
 
 ### Association
 
-- has_many : sending_destinations
-- has_many : cards
-- has_many : comments
-- has_many : items
+- has_many : sending_destinations, :dependent => :destroy
+- has_many : cards, :dependent => :destroy
+- has_many : comments, :dependent => :destroy
+- has_many : items, :dependent => :destroy
 
 ## sending_destinations テーブル
 
