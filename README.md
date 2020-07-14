@@ -12,8 +12,10 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+<!-- active_hashで作成するデータ郡については以下判断で処理 -->
+<!-- テーブルは作成しない／Associationにも記述しない／Colum,Type,Optionは記述する -->
 
-## userテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
@@ -29,13 +31,12 @@ Things you may want to cover:
 |year_id                        |string|null: false , foreign_key: true|
 |month_id                       |string|null: false , foreign_key: true|
 |date_id                        |string|null: false , foreign_key: true|
+|created_at                     |timestanp|null: false|
+|update_at                      |timestanp||
 ### Association
-- has_many :item
+- has_many :items
 - has_many :delivery_information
-- has_many :credit_card
-- has_many :year_id
-- has_many :month_id
-- has_many :date_id
+- has_many :credit_cards
 
 
 ## delivery_informationテーブル
@@ -48,17 +49,18 @@ Things you may want to cover:
 |delivery_first_name            |text|null: false|
 |delivery_family_name_furigana  |text|null: false|
 |delivery_first_name_furigana   |text|null: false|
-|Postal_code                    |string|null: false|
+|postal_code                    |string|null: false|
 |city                           |text|null: false|
 |address                        |text|null: false|
 |building_room_number           |text||
 |phone_number                   |text||
+|created_at                     |timestanp|null: false|
+|update_at                      |timestanp||
 ### Association
 - belongs_to :user
-- belongs_to :prefecture_id
 
 
-## credit_cardテーブル
+## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
@@ -68,18 +70,19 @@ Things you may want to cover:
 |year_id                        |string|null: false , foreign_key: true|
 |month_id                       |string|null: false , foreign_key: true|
 |security_code                  |string|null: false|
+|created_at                     |timestanp|null: false|
+|update_at                      |timestanp||
 ### Association
 - belongs_to :user
-- has_many :year
-- has_many :month
+- has_many :credit_cards
 
 
-## itemテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
-|seller_id                      |string|null: false , foreign_key: true|
-|buyer_id                       |string|null: false , foreign_key: true|
+|user_id                        |string|null: false , foreign_key: true|
+|credit_card_id                 |string|foreign_key: true|
 |image_id                       |string|null: false , foreign_key: true|
 |categories_id                  |string|null: false , foreign_key: true|
 |size_id                        |string|foreign_key: true|
@@ -87,28 +90,26 @@ Things you may want to cover:
 |condition_id                   |string|null: false , foreign_key: true|
 |shipping_fee_id                |string|null: false , foreign_key: true|
 |delivery_days_id               |string|null: false , foreign_key: true|
-|name                           |text|null: false|
+|item_name                           |text|null: false|
 |price                          |string|null: false|
 |description                    |text|null: false|
 |brand_id                       |string|foreign_key: true|
+|created_at                     |timestanp|null: false|
+|update_at                      |timestanp||
 ### Association
-- belongs_to :user_id
-- has_many :image
+- belongs_to :user
+- belongs_to :credit_card
+- has_many :images
 - has_many :categories
-- has_many :size
-- has_many :prefecture
-- has_many :condition
-- has_many :shipping_fee
-- has_many :delivery_days
-- has_many :brand
+- has_many :brands
 
 
-## imageテーブル
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
 |item_id                        |string|null: false , foreign_key: true|
-|image_1                        |string||
+|image_1                        |string|null: false|
 |image_2                        |string||
 |image_3                        |string||
 |image_4                        |string||
@@ -118,6 +119,8 @@ Things you may want to cover:
 |image_8                        |string||
 |image_9                        |string||
 |image_10                       |string||
+|created_at                     |timestanp|null: false|
+|update_at                      |timestanp||
 ### Association
 - belongs_to :item
 
@@ -128,48 +131,18 @@ Things you may want to cover:
 |id                             |string|null: false|
 |category_name                  |text|null: false|
 |ancestry_path                  |string||
+|created_at                     |timestanp|null: false|
+|update_at                      |timestanp||
 ### Association
 - belongs_to :item
 
-## sizeテーブル
-|Column|Type|Options|
-|------|----|-------|
-|id                             |string|null: false|
-|size                           |text|null: false|
-### Association
-- belongs_to :item
-
-## conditionテーブル
-|Column|Type|Options|
-|------|----|-------|
-|id                             |string|null: false|
-|condition                      |text|null: false|
-### Association
-- belongs_to :item
-
-## shipping_feeテーブル
-|Column|Type|Options|
-|------|----|-------|
-|id                             |string|null: false|
-|shipping_fee                   |text|null: false|
-### Association
-- belongs_to :item
-
-
-## delivery_daysテーブル
-|Column|Type|Options|
-|------|----|-------|
-|id                             |string|null: false|
-|delivery_days                  |text|null: false|
-### Association
-- belongs_to :item
-
-
-## brandテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
 |brand_name                     |text|null: false|
+|created_at                     |timestanp|null: false|
+|update_at                      |timestanp||
 ### Association
 - belongs_to :item
 
