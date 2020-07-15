@@ -7,11 +7,26 @@
       %list 
         %a(href="#") 出品する
       %list 
-        %a(href="#") 出品した商品 - 出品中
+        %a(href="#" class="exhibision-now") 出品した商品 - 出品中
+        .exhibision-now-info
+          .items
+            =image_tag"mypage/food.png",height:'60',width:'60'
+            %p 出品中商品
       %list 
-        %a(href="#") 出品した商品 - 売却済み
+        %a(href="#" class="exhibision-end") 出品した商品 - 売却済み
+        .exhibision-end-info
+          .items
+            =image_tag"mypage/food.png",height:'60',width:'60'
+            %p 売却済み商品
+          .items
+            =image_tag"mypage/food.png",height:'60',width:'60'
+            %p 売却済み商品
       %list 
-        %a(href="#") 購入した商品 - 過去の取引
+        %a(href="#" class="purchase") 購入した商品 - 過去の取引
+        .purchase-info
+          .items
+            =image_tag"mypage/food.png",height:'60',width:'60'
+            %p 購入した商品
       %list 
         %a(href="#") お問い合わせ
   .user_content__sales
