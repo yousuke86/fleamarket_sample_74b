@@ -19,13 +19,24 @@ $(function(){
     });
   });
 
-   // ユーザーマイページの「購入した商品 - 過去の取引」のjs実装
-   $('.purchase-info').hide();
+  // ユーザーマイページの「購入した商品 - 過去の取引」のjs実装
+  $('.purchase-info').hide();
 
-   $(function(){
-     $('.purchase').on('click', function(e){
-       e.preventDefault();
-       $('.purchase-info').toggle(350);
-     });
-   });
+  $(function(){
+    $('.purchase').on('click', function(e){
+      e.preventDefault();
+      $('.purchase-info').toggle(350);
+    });
+  });
+
+  //  ログアウトボタンのjs実装
+  $('.log-out__btn').hide();
+
+  $(function(){
+    $('.log-out').on('click', function(e){
+      e.preventDefault();
+      $('.log-out__btn').toggle(350);
+      $("html,body").animate({scrollTop:$('.log-out').offset().top});
+    });
+  });
 });
