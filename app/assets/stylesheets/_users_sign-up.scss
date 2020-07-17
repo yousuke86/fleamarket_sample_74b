@@ -1,5 +1,134 @@
-// SCSSが読み込めているかどうかの確認
-h2 {
-  font-size: 40px;
-  color: red;
+// devise//registrations/new.html.hamlのscssファイルです
+
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 }
+
+// 変数定義
+@mixin text_size {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+@mixin input_form {
+  letter-spacing: 1px;
+  padding: 8px 15px;
+  border: solid 1px;
+}
+
+// scss実装
+.account-page {
+  width: 60%;
+  margin: 0px auto;
+  background-color:white;
+  border: solid 0.5px gainsboro;
+
+  h2 {
+    letter-spacing: 3px;
+    font-weight: bolder;
+    font-size: 30px;
+  }
+
+  .main-head {
+    padding: 30px;
+    text-align: center;
+    border-bottom: solid 0.5px gainsboro;
+    margin: 0 auto;
+  }
+  .registor-form {
+    margin: 20px auto;
+    width: 60%;
+    .field {
+      margin-bottom: 20px;
+      &__label {
+        width: 350px;
+        letter-spacing: 1px;
+        font-size: 15px;
+        font-weight: bolder;
+        &__require {
+          margin-left:8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color:white;
+          font-size: 12px;
+          vertical-align: top;
+          font-weight: bolder;
+          background-color:#3CCACE;
+        }
+      }
+      &__input {
+        width: 100%;
+        margin-top: 5px;
+        input {
+          width: calc(100% - 32px);
+          @include input_form();
+        }
+      }
+      &__input-half {
+        display: flex;
+        width: 100%;
+        margin-top: 5px;
+        &__name {
+          background-color: #3CCACE;
+          margin-right: 30px;
+          input {
+            width: 90%;
+            @include input_form();
+          }
+        }
+      }
+      &__error-text {
+        @include text_size();
+        color: red;
+      }
+      &__form-info {
+        @include text_size();
+        color:gray;
+      }
+      &__sub-head {
+        letter-spacing: 1px;
+        font-size: 15px;
+        font-weight: bolder;
+        margin-top: 20px;
+      }
+      &__description {
+        @include text_size();
+        margin-bottom: 30px;
+      }
+      &__birth-select {
+        display: flex;
+        width: 65%;
+        &__wrap {
+          width: 70%;
+          display: flex;
+          #user_email {         //モデルを作成後、適切なid名に変更する必要あり(suzuki)
+            width: 90%;
+            @include input_form();
+          }
+          p {
+            font-size: 15px;
+            text-align: center;
+            line-height: 38px;
+            margin-left: 1px;
+          }
+        }
+      }
+    }
+
+    .actions {
+      .btn {
+        cursor: pointer;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        letter-spacing: 3px;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        background-color: #3CCACE;
+        color: white;
+        font-weight: bolder;
+      }
+    }
+   }
+  }

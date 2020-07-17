@@ -1,21 +1,112 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.account-page
+  .main-head
+    %h2 会員情報入力
+
+  -# ニックネーム、名前、生年月日はemailのパラメータを使って実装(suzuki)
+  .registor-form
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        .field__label
+          = f.label :ニックネーム
+          %span.field__label__require
+            必須
+        .field__input
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+        .field__error-text
+          ニックネームを入力してください
+
+      .field
+        .field__label
+          = f.label :メールアドレス
+          %span.field__label__require
+            必須
+        .field__input
+          = f.email_field :email
+        .field__error-text
+          メールアドレスを入力してください
+
+
+      .field
+        .field__label
+          = f.label :パスワード
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} 文字以内)
+          %span.field__label__require
+            必須
+        .field__input
+          = f.password_field :password
+        .field__error-text
+          パスワードを入力してください
+        .field__form-info
+          ※ 英字と数字の両方を含めて設定してください
+
+      .field
+        .field__label
+          = f.label :パスワード（確認用）
+          %span.field__label__require
+            必須
+        .field__input
+          = f.password_field :password_confirmation
+        .field__error-text
+          パスワードを入力してください（確認用）
+        .field__form-info
+          ※ 英字と数字の両方を含めて設定してください
+
+      .field
+        .field__sub-head
+          本人確認
+        .field__description
+          %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。<br>他のお客さまに公開されることはありません。
+      
+      .field
+        .field__label
+          = f.label :お名前（全角）
+          %span.field__label__require
+            必須
+        .field__input-half
+          .field__input-half__name
+            = f.email_field :email
+          .field__input-half__name
+            = f.email_field :email
+        .field__error-text
+          姓を入力してください
+        .field__error-text
+          名を入力してください
+      
+      .field
+        .field__label
+          = f.label :お名前カナ（全角）
+          %span.field__label__require
+            必須
+        .field__input-half
+          .field__input-half__name
+            = f.email_field :email
+          .field__input-half__name
+            = f.email_field :email
+        .field__error-text
+          姓（カナ）を入力してください
+        .field__error-text
+          名（カナ）を入力してください
+
+      .field
+        .field__label
+          = f.label :生年月日
+          %span.field__label__require
+            必須
+        .field__birth-select
+          .field__birth-select__wrap
+            = f.select :email, {"--": 0, "2020": 1,"2019": 2,"2018": 3,"2017": 4,"2016": 5,"2015": 6}
+            %p 年
+          .field__birth-select__wrap
+            = f.select :email, {"--": 0, "1": 1, "2": 2, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "11": 11, "12": 12}
+            %p 月
+          .field__birth-select__wrap
+            = f.select :email, {"--": 0, "1": 1, "2": 2, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "11": 11, "12": 12}
+            %p 日
+        .field__error-text
+          生年月日を入力してください
+
+      .actions
+        = f.submit "登録", class: "btn"
