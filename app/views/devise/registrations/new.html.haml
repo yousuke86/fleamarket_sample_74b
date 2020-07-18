@@ -12,9 +12,9 @@
           %span.field__label__require
             必須
         .field__input
-          = f.email_field :email, autofocus: true, autocomplete: "email"
+          = f.email_field :email, autofocus: true, autocomplete: "email", id: "input-nickname"
         .field__error-text
-          ニックネームを入力してください
+          %p#result-nickname ニックネームを入力してください
 
       .field
         .field__label
@@ -22,9 +22,9 @@
           %span.field__label__require
             必須
         .field__input
-          = f.email_field :email
+          = f.email_field :email, id: "input-email"
         .field__error-text
-          メールアドレスを入力してください
+          %p#result-email メールアドレスを入力してください
 
 
       .field
@@ -36,9 +36,9 @@
           %span.field__label__require
             必須
         .field__input
-          = f.password_field :password
+          = f.password_field :password, id: "input-password"
         .field__error-text
-          パスワードを入力してください
+          %p#result-password パスワードを入力してください
         .field__form-info
           ※ 英字と数字の両方を含めて設定してください
 
@@ -48,9 +48,9 @@
           %span.field__label__require
             必須
         .field__input
-          = f.password_field :password_confirmation
+          = f.password_field :password_confirmation, id: "input-password_confirmation"
         .field__error-text
-          パスワードを入力してください（確認用）
+          %p#result-password_confirmation パスワードを入力してください（確認用）
         .field__form-info
           ※ 英字と数字の両方を含めて設定してください
 
@@ -67,13 +67,13 @@
             必須
         .field__input-half
           .field__input-half__name
-            = f.email_field :email
+            = f.email_field :email, id: "input-first_name"
           .field__input-half__name
-            = f.email_field :email
+            = f.email_field :email, id: "input-last_name"
         .field__error-text
-          姓を入力してください
+          %p#result-first_name 姓を入力してください
         .field__error-text
-          名を入力してください
+          %p#result-last_name 名を入力してください
       
       .field
         .field__label
@@ -82,13 +82,13 @@
             必須
         .field__input-half
           .field__input-half__name
-            = f.email_field :email
+            = f.email_field :email, id: "input-first_name_kana"
           .field__input-half__name
-            = f.email_field :email
+            = f.email_field :email, id: "input-last_name_kana"
         .field__error-text
-          姓（カナ）を入力してください
+          %p#result-first_name_kana 姓（カナ）を入力してください
         .field__error-text
-          名（カナ）を入力してください
+          %p#result-last_name_kana 名（カナ）を入力してください
 
       .field
         .field__label
@@ -97,16 +97,16 @@
             必須
         .field__birth-select
           .field__birth-select__wrap
-            = f.select :email, {"--": 0, "2020": 1,"2019": 2,"2018": 3,"2017": 4,"2016": 5,"2015": 6}
+            = f.select :email, {"2020": 1,"2019": 2,"2018": 3,"2017": 4,"2016": 5,"2015": 6}, id: "input-year"
             %p 年
           .field__birth-select__wrap
-            = f.select :email, {"--": 0, "1": 1, "2": 2, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "11": 11, "12": 12}
+            = f.select :email, {"1": 1, "2": 2, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "11": 11, "12": 12}, id: "input-month"
             %p 月
           .field__birth-select__wrap
-            = f.select :email, {"--": 0, "1": 1, "2": 2, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "11": 11, "12": 12}
+            = f.select :email, {"1": 1, "2": 2, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "11": 11, "12": 12}, id: "input-day"
             %p 日
         .field__error-text
-          生年月日を入力してください
+          %p#result-birth 生年月日を入力してください
 
       .actions
         = f.submit "登録", class: "btn"
