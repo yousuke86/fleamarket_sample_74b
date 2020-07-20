@@ -39,21 +39,4 @@ $(function(){
       $("html,body").animate({scrollTop:$('.log-out').offset().top});
     });
   });
-<<<<<<< HEAD
-=======
-  console.log('OK');
->>>>>>> parent of ee30beb... user_mypage_add_js
-<<<<<<< HEAD
-=======
-   $(function(){
-     $('.purchase').on('click', function(e){
-       e.preventDefault();
-       $('.purchase-info').toggle(350);
-     });
-   });
->>>>>>> parent of de14004... make_log-out-page&refactoring
-=======
->>>>>>> parent of f8be647... revert ee30beb
-=======
->>>>>>> parent of ba8a581... revert de14004
 });
