@@ -139,13 +139,35 @@ body {
   border-bottom: 1px solid lightgray;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-color: rgba(230, 238, 120, 0.15);
 =======
 >>>>>>> parent of 5e3a526... user_mypage_add_js-fix
 =======
   background-color: rgba(231, 247, 11, 0.068);
 >>>>>>> parent of de14004... make_log-out-page&refactoring
+=======
+  background-color: rgba(230, 238, 120, 0.15);
+>>>>>>> parent of 0f3c41f... revert 5e3a526
   
+  &-status {
+    margin-top: 15px;
+    line-height: 30px;
+    height: 30px;
+    margin-right: 20px;
+    background: #888;
+    border-radius: 2px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+    padding: 0 3px;
+  }
+
+  img {
+    height: 60px;
+    width: 60px;
+  }
+
   p{
     line-height: 60px;
     margin-left: 50px;
