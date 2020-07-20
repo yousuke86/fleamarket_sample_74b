@@ -1,6 +1,4 @@
-// jqueryが読み込めてるかのテストです
 $(function(){
-<<<<<<< HEAD
   // ユーザーマイページの「出品した商品 - 出品中」のjs実装
   $('.exhibision-now-info').hide();
 
@@ -42,6 +40,7 @@ $(function(){
       $("html,body").animate({scrollTop:$('.log-out').offset().top});
     });
   });
+<<<<<<< HEAD
 =======
   console.log('OK');
 >>>>>>> parent of ee30beb... user_mypage_add_js
@@ -53,4 +52,6 @@ $(function(){
      });
    });
 >>>>>>> parent of de14004... make_log-out-page&refactoring
+=======
+>>>>>>> parent of f8be647... revert ee30beb
 });
