@@ -21,9 +21,10 @@ $(function(){
     });
   });
 
-  // ユーザーマイページの「購入した商品 - 過去の取引」のjs実装
-  $('.purchase-info').hide();
+   // ユーザーマイページの「購入した商品 - 過去の取引」のjs実装
+   $('.purchase-info').hide();
 
+<<<<<<< HEAD
   $(function(){
     $('.purchase').on('click', function(e){
       e.preventDefault();
@@ -44,4 +45,12 @@ $(function(){
 =======
   console.log('OK');
 >>>>>>> parent of ee30beb... user_mypage_add_js
+=======
+   $(function(){
+     $('.purchase').on('click', function(e){
+       e.preventDefault();
+       $('.purchase-info').toggle(350);
+     });
+   });
+>>>>>>> parent of de14004... make_log-out-page&refactoring
 });
