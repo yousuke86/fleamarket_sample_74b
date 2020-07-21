@@ -1,6 +1,4 @@
-// jqueryが読み込めてるかのテストです
 $(function(){
-<<<<<<< HEAD
   // ユーザーマイページの「出品した商品 - 出品中」のjs実装
   $('.exhibision-now-info').hide();
 
@@ -21,10 +19,9 @@ $(function(){
     });
   });
 
-   // ユーザーマイページの「購入した商品 - 過去の取引」のjs実装
-   $('.purchase-info').hide();
+  // ユーザーマイページの「購入した商品 - 過去の取引」のjs実装
+  $('.purchase-info').hide();
 
-<<<<<<< HEAD
   $(function(){
     $('.purchase').on('click', function(e){
       e.preventDefault();
@@ -42,15 +39,4 @@ $(function(){
       $("html,body").animate({scrollTop:$('.log-out').offset().top});
     });
   });
-=======
-  console.log('OK');
->>>>>>> parent of ee30beb... user_mypage_add_js
-=======
-   $(function(){
-     $('.purchase').on('click', function(e){
-       e.preventDefault();
-       $('.purchase-info').toggle(350);
-     });
-   });
->>>>>>> parent of de14004... make_log-out-page&refactoring
 });

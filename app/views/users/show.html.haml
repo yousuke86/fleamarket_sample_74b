@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .user_content
   .user_content__info
     %h2 ユーザー名
@@ -8,40 +7,30 @@
       %list 
         %a(href="#") 出品する
       %list 
-<<<<<<< HEAD
         %a(href="#" class="exhibision-now") 出品した商品 - 出品中
         .exhibision-now-info
           .items
-            =image_tag"mypage/food.png",height:'60',width:'60'
-            %p 出品中商品
+            .items-status 出品中
+            =image_tag"mypage/food.png"
+            %p 出品中商品名
       %list 
         %a(href="#" class="exhibision-end") 出品した商品 - 売却済み
         .exhibision-end-info
           .items
-            =image_tag"mypage/food.png",height:'60',width:'60'
-            %p 売却済み商品
+            .items-status 売却済
+            =image_tag"mypage/food.png"
+            %p 売却済み商品名
           .items
-            =image_tag"mypage/food.png",height:'60',width:'60'
-            %p 売却済み商品
+            .items-status 売却済
+            =image_tag"mypage/food.png"
+            %p 売却済み商品名
       %list 
         %a(href="#" class="purchase") 購入した商品 - 過去の取引
         .purchase-info
           .items
-<<<<<<< HEAD
             .items-status 購入済
             =image_tag"mypage/food.png"
             %p 購入した商品名
-=======
-        %a(href="#") 出品した商品 - 出品中
-      %list 
-        %a(href="#") 出品した商品 - 売却済み
-      %list 
-        %a(href="#") 購入した商品 - 過去の取引
->>>>>>> parent of ee30beb... user_mypage_add_js
-=======
-            =image_tag"mypage/food.png",height:'60',width:'60'
-            %p 購入した商品
->>>>>>> parent of 5e3a526... user_mypage_add_js-fix
       %list 
         %a(href="#") お問い合わせ
   .user_content__sales
@@ -59,15 +48,8 @@
       %list 
         %a(href="#") 発送・お届け先住所変更
       %list 
-        %a(href="#") カード情報
+        = link_to 'カード情報',new_card_path
       %list 
-<<<<<<< HEAD
         %a(href="#" class="log-out") ログアウト
         .log-out__btn
           %a(href="#") ログアウト
-=======
-これはユーザーマイページです
->>>>>>> parent of b5cf964... make_user_mypage&jquery/font-awesome_install
-=======
-        %a(href="#") ログアウト
->>>>>>> parent of de14004... make_log-out-page&refactoring

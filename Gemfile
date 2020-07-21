@@ -73,3 +73,7 @@ group :production do
 end
 gem "haml-rails"
 gem 'devise'
+
+gem 'jquery-rails'
+gem 'font-awesome-sass'
+gem 'payjp'
