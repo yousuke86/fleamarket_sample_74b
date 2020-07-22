@@ -1,5 +1,232 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
+.header 
+  .header__inner
+    .header__main
+      .icon
+        = image_tag "logo/logo.png" , size: "140x40"
+      .search_box
+        %input.input-text{:name => "key", :placeholder => "キーワードから探す", :type => "search", :value => "", :class => "search"}/
+        %button{type: "submit", class:'submit'} 
+          .submit_icon
+    .header__navigation
+      %ul.category__brand
+        %li.category
+          カテゴリー
+        %li.brand
+          ブランド
+      %ul.login__registration
+        %li.login
+          = link_to "ログイン",'#', class: "login__btn" 
+          
+        %li.restration
+          = link_to "新規会員登録",'#', class: "registration__btn"
+    
+.contents
 
--# ↓確認の文字です　近藤
-hello haml   
+  .contents_top
+    .contents_top_box
+      .contents_top_box_contents
+        .top_message
+          人生を変えるフリマアプリ
+        .top_sub_message
+          FURIMAはだれでもかんたんに出品・購入できる
+          %br
+          フリマアプリです
+        .link_contents
+          .applestore
+          .googleplay
+  .contents__second
+    
+    %h1.contents_reason 
+      FURIMAが選ばれる3つの理由
+      .contents_second_title_after
+    %ul.how_use
+      %li.usage1
+        %div.pic1
+          = image_tag src="pict/pict-reason-01.jpg", size: "300x300"
+          .picture1 1
+        %p.display1 <b><span>3分</span>ですぐに出品</b>
+        %p.display_comment1 スマホで入力するだけで簡単に出品<br>できる！</br>
+        
+      %li.usage2
+        %div.pic2
+          = image_tag src="pict/pict-reason-02.jpg", size: "300x300"
+          .picture2 2
+        %p.display2 <b><span>シンプル</span>で使いやすい</b>
+        %p.display_comment2 めんどくさい入力は必要なく、<br>検索も購入もスムーズ！
+
+      %li.usage3
+        %div.pic3
+          = image_tag src="pict/pict-reason-03.jpg", size: "300x300"
+          .picture3 3
+        %p.display3  <b>手数料<span>業界最安</span></b>
+        %p.display_comment3 最大3%でお得に出品&購入！！
+
+  .contents_third
+    .contents_third_inner
+      .contents_third_inner_title 会員数日本1位
+      .contents_third_inner_sub_title
+        <b>FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。</b>
+      .contents_third_inner_icon
+        .third_applestore
+        .third_googleplay
+
+
+  .contents_forth
+    
+    %h1.contents_feature FURIMAの特徴
+    .contents_forth_title_after
+    %ul.how_use
+      %li.usage1
+        %div.pic1
+        = image_tag src="icon/icon-01.png", size: "300x300"
+        %p.display 簡単に売り買いできる
+        %p.display_comment スマホひとつで、いつでもどこでも<br>簡単に出品・購入が可能！
+          
+      %li.usage2
+        %div.pic1
+        = image_tag src="icon/icon-03.png", size: "300x300"
+        %p.display 売上金は即日振込みに対応
+        %p.display_comment 午前9時までに振込を依頼いただければ、<br>翌日に指定の口座に入金いたします!
+
+      %li.usage3
+        %div.pic1
+        = image_tag src="icon/icon-04.png", size: "300x300"
+        %p.display 様々な支払いに対応
+        %p.display_comment お支払いは、クレジットカードだけでなく、<br>ポイントや売上金など多彩な方法があります。
+
+  .contents_fifth
+    .contents_pickup
+      %h1.contents_feature 
+      ピックアップカテゴリー
+      %ul.how_use
+        %li.usage1
+          %div.pic1
+          = image_tag src="kintore/danbel2.jpg", size: "220x150"
+          %p.pic1_list 
+            %p.pic1_list_name 
+              ダンベル
+              %ul.list
+                %li.pic1_list_details 
+                  50,000円  
+                %li.like ⭐️1
+          
+        %li.usage1
+          %div.pic1
+          = image_tag src="kintore/protein1.jpg", size: "220x150"
+          %p.pic2_list
+            %p.pic1_list_name 
+              プロテイン
+              %ul.list
+                %li.pic1_list_details 
+                  9,000円  
+                %li.like ⭐️0
+
+        %li.usage1
+          %div.pic1
+          = image_tag src="kintore/protein2.jpg", size: "220x150"
+          %p.pic2_list
+            %p.pic1_list_name 
+              詰め合わせ
+              %ul.list
+                %li.pic1_list_details 
+                  2,000円  
+                %li.like ⭐️1
+
+        %li.usage1
+          %div.pic1
+          = image_tag src="kintore/kintore.jpg", size: "220x150"
+          %p.pic2_list
+            %p.pic1_list_name 
+              ダンベル
+              %ul.list
+                %li.pic1_list_details 
+                  1,000,000円  
+                %li.like ⭐️238
+  
+
+    .contents_archive
+      %h1.contents_feature 
+      ピックアップブランド
+      %ul.how_use
+        %li.usage1
+          %div.pic1
+          = image_tag src="kintore/danbel2.jpg", size: "220x150"
+          %p.pic1_list 
+            %p.pic1_list_name 
+              ダンベル
+              %ul.list
+                %li.pic1_list_details 
+                  50,000円  
+                %li.like ⭐️1
+          
+        %li.usage1
+          %div.pic1
+          = image_tag src="kintore/protein1.jpg", size: "220x150"
+          %p.pic1_list_name 
+            プロテイン
+            %ul.list
+              %li.pic1_list_details 
+                9,000円  
+              %li.like ⭐️0
+
+        %li.usage1
+          %div.pic1
+          = image_tag src="kintore/protein2.jpg", size: "220x150"
+          %p.pic1_list_name 
+            詰め合わせ
+            %ul.list
+              %li.pic1_list_details 
+                2,000円  
+              %li.like ⭐️1
+
+        %li.usage1
+          %div.pic1
+          = image_tag src="kintore/kintore.jpg", size: "220x150"
+          %p.pic2_list
+            %p.pic1_list_name 
+              ダンベル
+              %ul.list
+                %li.pic1_list_details 
+                  1,000,000円  
+                %li.like ⭐️238
+
+  .contents_sixth
+    .sixth_inner
+      .inner_title
+        だれでもかんたん、人生を変えるフリマアプリ
+      .inner_sub_title
+        今すぐ無料ダウンロード！
+      .inner_icon
+        .applestore
+        .googleplay
+
+  
+  .footer
+    %div.footer__flex
+      %ul.guide
+        %li.about__FURIMA
+          %div.furima FURIMAについて
+          %div.content 会社概要（運営会社）
+          %div.content プライバシー
+          %div.content フリマ利用規約
+          %div.content ポイントに関する特約
+        %li.look__FURIMA
+          %div.furima FURIMAを見る
+          %div.content カテゴリー一覧
+          %div.content ブランド一覧
+        %li.guide__FURIMA
+          %div.furima FURIMAについて
+          %div.content 会社概要（運営会社）
+          %div.content プライバシー
+          %div.content フリマ利用規約
+    %div.footer__logo
+      = image_tag "logo/logo.png" , size: "180x55", class: 'logo'
+      %p.copylight © FURIMA
+.purchase_btn
+  .purchase_btn_text
+    出品する
+  .purchase_btn_icon

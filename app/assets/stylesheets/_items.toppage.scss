@@ -1,0 +1,502 @@
+@mixin piture__style {
+  display: inline-block;
+  top: 0;
+  left: 0;
+  border-radius: 4%;
+  font-size: 30px;
+  text-align: center;
+  margin: 0 5px 0 0;
+  padding: 10px 20px;
+  background-color: #3CCACE;
+  color: #fff;
+  position: absolute;
+  }
+
+
+
+.header {
+  height: 120px;
+  padding: 0 60px;
+  display: block;
+    &__inner {
+      max-width: 1040px;
+      width: 100%;
+      min-height: 82px;
+      margin: 0 auto;
+      padding: 15px 0 0;
+      .header__main {
+        height: 60px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        .icon {
+          padding-top: 10px;
+          margin-right: 30px;
+        }
+        .search_box{
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          .search{
+            width: calc(100% - 26px);
+            height: 36px;
+            padding: 0 0 0 5px;
+          }
+          .submit{
+            width: 36px;
+            border: 0;
+            cursor: pointer;
+            background-color: #3CCACE;
+            padding: 8px;
+            &:hover{
+              opacity :0.6 ;
+            }
+            &_icon{
+              height: 14px;
+              width: 14px;
+              background-image: url(icon/icon-search1);
+              background-size: cover;
+            }
+          }
+        }
+      }
+      .header__navigation {
+        display: flex;
+        font-size: 14px;
+      }
+      ul {
+        display: flex;
+        li {
+          line-height: 30px;
+        }
+        li.brand {
+          padding: 0 0 0 40px;
+        }
+      }
+      .login__registration {
+        margin-left: auto;
+        .login__btn {
+          text-decoration: none;
+          color: black;
+        }
+        .registration__btn {
+          padding: 0 0 0 20px;
+          text-decoration: none;
+          color: black;
+          }
+      }
+    }
+}
+
+
+.contents {
+  width: 100%;
+    &_top{
+      background-image: url(/assets/pict/bg-mainVisual-pict_pc.jpg);
+      background-size: cover;
+      height: 560px;
+      padding: 0 60px;
+      &_box{
+        padding-top: 160px;
+        &_contents{
+          .top_message{
+            align-items: center;
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 35px 0 0 0;
+            text-shadow: 0 0 5px rgba(0,0,0,0.4);
+            font-size: 60px;
+            line-height: 1.2;
+            color: #fff;
+            top: 15px;
+            left: 15px;
+          }
+          .top_sub_message{
+            text-shadow: 0 0 5px rgba(0,0,0,0.4);
+            font-size: 18px;
+            color: #fff;
+            line-height: 1.77778;
+            margin: 16px 0 0 0;
+          }
+          .link_contents{
+            display: flex;
+            margin: 24px 0 0 0;
+            height:60px ;
+            width: 780px;
+            .applestore{
+              height: 53px;
+              width: 180px;
+              background-image: url(icon/appstore.jpg);
+              background-size: cover;
+              margin-right: 15px;
+            }
+            .googleplay{
+              height: 53px;
+              width: 180px;
+              background-image: url(icon/googleplay.jpg);
+              background-size: cover;
+            }
+          }
+        }
+      }
+    }
+    &__second{
+      height: 660px;
+      
+      .contents_reason {
+        text-align: center;
+        font-size: 30px;
+        padding: 40px 0 0 0;
+        .contents_second_title_after{
+          content: "";
+          width: 70px;
+          height: 4px;
+          background-color: #3CCACE;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          position: relative;
+        }
+      }
+      
+      .how_use {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 220px 0;
+        .pic1 {
+          position: relative;
+          margin-bottom: 20px;
+          .picture1{
+            @include piture__style();
+          }
+        }
+        .display1 {
+          font-size: 22px;
+          margin-bottom: 14px;
+          span {
+            color: aqua;
+            margin: 10px 10px 0 60px;
+            font-size: 24px;
+          }
+        }
+        .display_comment1 {
+          font-size: 18px;
+        }
+        .pic2 {
+          position: relative;
+          margin-bottom: 20px;
+          .picture2{
+            @include piture__style();
+          }
+        }
+        .display2 {
+          font-size: 22px;
+          margin-bottom: 14px;
+          span {
+            color: aqua;
+            margin: 10px 10px 0 40px;
+            font-size: 24px;
+          }
+        }
+        .display_comment2 {
+          font-size: 18px;
+        }
+        .pic3 {
+          position: relative;
+          margin-bottom: 20px;
+          .picture3{
+            @include piture__style();
+          }
+        }
+        .display3 {
+          font-size: 22px;
+          margin: 14px 0px 14px 0px;
+          text-align: center;
+          span {
+            color: aqua;
+            margin: 0px 0px 0 10px;
+            font-size: 24px;
+          }
+        }
+        .display_comment3 {
+          font-size: 18px;
+          text-align: center;
+        }
+      }
+    }
+    &_third {
+      height: 400px;
+      width: 100%;
+      background-image: image-url(pict/bg-topMiddleDl-pict);
+      background-size: cover;
+      padding-top: 100px;
+      &_inner{
+        color: #fff;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        text-align: left;
+        max-width: 1040px;
+        width: 100%;
+        margin: 0 auto;
+        &_title{
+          font-size: 27px;
+          font-weight: bold;
+          line-height: 1.4;
+          margin-bottom: 20px;
+        }
+        &_sub_title{
+          color: #fff;
+          font-size: 16px;
+        }
+        &_icon{
+          display: flex;
+          padding-top: 35px;
+          .third_applestore{
+            height: 53px;
+            width: 180px;
+            background-image: url(icon/appstore.jpg);
+            background-size: cover;
+            margin-right: 15px;
+          }
+          .third_googleplay{
+            height: 53px;
+            width: 180px;
+            background-image: url(icon/googleplay.jpg);
+            background-size: cover;
+          }
+        }
+
+      }
+    }
+    
+    &_forth {
+      height: 730px;
+      .contents_forth_title_after{
+        content: "";
+        width: 70px;
+        height: 4px;
+        background-color: #3CCACE;
+        position: absolute;
+        bottom: 100;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .contents_feature {
+        text-align: center;
+        font-size: 30px;
+        padding: 140px 0 0 0;
+      }
+      .how_use {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 220px 0;
+        .display {
+          text-align: center;
+          font-weight: bold;
+          font-size: 20px;
+        }
+        .display_comment {
+          font-size: 17px;
+          margin-top: 10px;
+        }
+      }
+    }
+    &_fifth {
+      height: 950px;
+      .contents_pickup {
+        background-color: #EEEEEE;
+        height: 420px;
+        text-align: center;
+        font-size: 30px;
+        padding: 30px 0 0 0;
+        .contents_feature {
+          text-align: center;
+          font-size: 30px;
+          padding: 30px 0 0 0;
+        }
+        .how_use {
+          display: flex;
+          justify-content: center;
+          padding: 40px 220px 0;
+          .usage1 {
+            background-color: white;
+          }
+          ul {
+            display: flex;
+            justify-content: space-between;
+            li {
+              font-size: 18px;
+              padding: 0 10px;
+            }
+          }
+        }
+      }  
+    }
+      .contents_archive {
+        background-color: #EEEEEE;
+        height: 530px;
+        text-align: center;
+        font-size: 30px;
+        padding: 60px 0 0 0;
+        .contents_feature {
+          text-align: center;
+          font-size: 30px;
+          padding: 30px 0 0 0;
+        }
+        .how_use {
+          display: flex;
+          justify-content: center;
+          padding: 40px 220px 0;
+          .usage1 {
+            background-color: white;
+          }
+          ul {
+            display: flex;
+            justify-content: space-between;
+            li {
+              font-size: 18px;
+              padding: 0 10px;
+            }
+          }
+        }
+    }
+    &_sixth {
+      background-color: blue;
+      height: 360px;
+      background-image: image-url(pict/bg-appBanner-pict);
+      background-size: cover;
+      .sixth_inner{
+        padding: 100px 40px;
+        text-align: center;
+
+        .inner_title{
+        color: white;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.4;
+        }
+        .inner_sub_title{
+        color: white;
+        font-size: 35px;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        }
+        .inner_icon{
+          display: flex;
+          justify-content: center;
+          .applestore{
+            height: 53px;
+            width: 180px;
+            background-image: url(icon/appstore.jpg);
+            background-size: cover;
+            margin-right: 15px;
+
+          }
+          .googleplay{
+            height: 53px;
+            width: 180px;
+            background-image: url(icon/googleplay.jpg);
+            background-size: cover;
+
+          }
+
+        }
+      }
+
+      
+      
+    }
+}
+
+.footer {
+  background-color: black;
+  .footer__flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 100%;
+    
+    .guide {
+      height: 170px;
+      width: 810px;
+      display: flex;
+      margin-left: 5%;
+      .about__FURIMA {
+        width: 270px;
+        .furima {
+          color: white;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+        .content {
+          color: white;
+          margin-bottom: 10px;
+          font-size: 12px;
+        }
+      }
+      .look__FURIMA {
+        width: 270px;
+        .furima {
+          color: white;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+        .content {
+          color: white;
+          margin-bottom: 10px;
+          font-size: 12px;
+        }
+      }
+      .guide__FURIMA {
+        width: 270px;
+        .furima {
+          color: white;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+        .content {
+          color: white;
+          margin-bottom: 10px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+    .logo {
+      padding: 0 600px 70px;
+      filter: invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%);
+    }
+    .copylight {
+      color: white;
+      text-align: center;
+    }
+}  
+.purchase_btn{
+  width: 120px;
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  box-sizing: border-box;
+  &:hover {
+    background: rgb(48, 164, 168);
+  }
+  &_text{
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  &_icon{
+    height: 54px;
+    width: 54px;
+    background-image: image-url(icon/icon_camera);
+    background-size: cover;
+    margin: 0 auto;
+  }
+}
