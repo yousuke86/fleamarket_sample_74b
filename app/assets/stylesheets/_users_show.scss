@@ -1,6 +1,8 @@
 // user/show.html.hamlのscssファイルです
 
+
 // 変数定義
+
 @mixin li-decoration(){
   font-weight: bolder;
   height: 50px;
@@ -25,9 +27,10 @@
 
 
 // scss実装
-body {
-  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-}
+
+// body {
+//   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+// }
 
 .user_content {
   height: 100vh;

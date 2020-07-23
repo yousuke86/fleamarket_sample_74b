@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :users, only: [:show]
   resources :sending_destinations, only: [:new]
+  resources :cards, only: [:new, :create]
   
 end
