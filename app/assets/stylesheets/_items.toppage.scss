@@ -64,10 +64,34 @@
         display: flex;
         font-size: 14px;
       }
-      ul {
+      ul#category__brand {
         display: flex;
+        li.category {
+          position: relative;
+          display: flex;
+        }
         li {
           line-height: 30px;
+        }
+        .category__btn {
+          text-decoration: none;
+          color: black;
+        }
+        .menu_contents {
+          background: white;
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 200%;
+          .font {
+            text-decoration: none;
+            color: black;
+          }
+        }
+        .brand__btn {
+          text-decoration: none;
+          color: black;
         }
         li.brand {
           padding: 0 0 0 40px;
@@ -75,6 +99,7 @@
       }
       .login__registration {
         margin-left: auto;
+        display: flex;
         .login__btn {
           text-decoration: none;
           color: black;
