@@ -97,15 +97,15 @@
             必須
         .field__birth-select
           .field__birth-select__wrap
-            != sprintf(f.date_select :birth_year,{use_month_numbers:true, start_year: 1200,end_year: (Time.now.year - 18),date_separator: '/'}, id: "input-birth_day" )
-          -#   = f.date_select :birth_year,{include_blank: true, discard_month: true, discard_day: true, use_year_numbers: true} , id: "input-birth_year"
-          -#   -# = sprintf(f.date_select :birth_year, {start_year: 1930, end_year: (Time.now.year - 18), default: Date.new(1989, 1, 1), date_separator:'%s'}, '年', '月'), id: "input-birth_year"
-          -#   %p 年
+            != sprintf(f.date_select :birth_year,{use_month_numbers:true, start_year: 1200,end_year: (Time.now.year - 18),date_separator: '年'}, id: "input-birth_day" )
+            -# = f.date_select :birth_year,{include_blank: true, discard_month: true, discard_day: true, use_year_numbers: true} , id: "input-birth_year"
+            -# = sprintf(f.date_select :birth_year, {start_year: 1930, end_year: (Time.now.year - 18), default: Date.new(1989, 1, 1), date_separator:'%s'}, '年', '月'), id: "input-birth_year"
+            %p 年
           .field__birth-select__wrap
             = f.date_select :birth_month, {include_blank: true, discard_year: true, discard_day: true, use_month_numbers: true} , id: "input-birth_month"
             %p 月
           .field__birth-select__wrap
-            = f.date_select :birth_day, {include_blank: true, discard_year: true, discard_month: true, use_day_numbers: true} , id: "input-birth_day"
+            = f.date_select :birth_day, {include_blank: true, discard_year: true, use_day_numbers: true} , id: "input-birth_day"
             %p 日
         .field__error-text
           %p#result-birth 生年月日を入力してください
