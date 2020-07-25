@@ -1,0 +1,95 @@
+.address-page
+  .main-head
+    %h2 発送元・お届け先住所入力
+
+  .address-form
+    .field
+      .field__label
+        %p お名前（全角）
+        %span.field__label__require
+          必須
+      .field__input-half
+        .field__input-half__name
+          %input{id: "input-first_name"}
+        .field__input-half__name
+          %input{id: "input-last_name"}
+      .field__error-text
+        %p#result-first_name 姓を入力してください
+      .field__error-text
+        %p#result-last_name 名を入力してください
+    
+    .field
+      .field__label
+        %p お名前カナ（全角）
+        %span.field__label__require
+          必須
+      .field__input-half
+        .field__input-half__name
+          %input{id: "input-first_name_kana"}
+        .field__input-half__name
+          %input{id: "input-last_name_kana"}
+      .field__error-text
+        %p#result-first_name_kana 姓（カナ）を入力してください
+      .field__error-text
+        %p#result-last_name_kana 名（カナ）を入力してください
+      
+    .field
+      .field__label
+        %p 郵便番号
+        %span.field__label__require
+          必須
+      .field__input
+        %input{id: "input-postcode"}
+      .field__error-text
+        %p#result-postcode 郵便番号を入力してください
+
+    .field
+      .field__label
+        %p 都道府県
+        %span.field__label__require
+          必須
+      .field__input--prefecture
+        = select_tag 'field_input-prefecture', options_for_select(["北海道", "青森", "秋田", "岩手", "山形"]), id: "input-prefecture" 
+      .field__error-text
+        %p#result-prefecture 都道府県を選択してください
+
+    .field
+      .field__label
+        %p 市町村
+        %span.field__label__require
+          必須
+      .field__input
+        %input{id: "input-city"}
+      .field__error-text
+        %p#result-city 市町村を入力してください
+
+    .field
+      .field__label
+        %p 建物名
+        %span.field__label__require
+          任意
+      .field__input
+        %input
+      .field__error-text
+      
+    .field
+      .field__label
+        %p 部屋番号
+        %span.field__label__require
+          任意
+      .field__input
+        %input
+      .field__error-text
+
+    .field
+      .field__label
+        %p 電話番号
+        %span.field__label__require
+          任意
+      .field__input
+        %input
+      .field__error-text
+        
+    .actions
+      .btn
+        = link_to "次へ", "#", class: "btn", data: {"turbolinks" => false}
