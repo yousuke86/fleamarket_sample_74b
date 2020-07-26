@@ -99,11 +99,11 @@ body {
         display: flex;
         width: 65%;
         &__wrap {
-          width: 70%;
+          align-items: center;
           display: flex;
-          #user_email {         //モデルを作成後、適切なid名に変更する必要あり(suzuki)
-            width: 90%;
+          #input-birth_day{         //モデルを作成後、適切なid名に変更する必要あり(suzuki)
             @include input_form();
+
           }
           p {
             font-size: 15px;

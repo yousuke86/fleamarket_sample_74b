@@ -71,9 +71,9 @@
           .field__input-half__name
             = f.text_field :last_name, id: "input-last_name"
         .field__error-text
-          %p#result-first_name 姓を入力してください
+          %p#result-first_name 苗字を入力してください
         .field__error-text
-          %p#result-last_name 名を入力してください
+          %p#result-last_name お名前を入力してください
       
       .field
         .field__label
@@ -86,9 +86,9 @@
           .field__input-half__name
             = f.text_field :last_name_kana, id: "input-last_name_kana"
         .field__error-text
-          %p#result-first_name_kana 姓（カナ）を入力してください
+          %p#result-first_name_kana 苗字（カナ）を入力してください
         .field__error-text
-          %p#result-last_name_kana 名（カナ）を入力してください
+          %p#result-last_name_kana お名前（カナ）を入力してください
 
       .field
         .field__label
@@ -97,32 +97,8 @@
             必須
         .field__birth-select
           .field__birth-select__wrap
-            != sprintf(f.date_select :birth_year,{use_month_numbers:true, start_year: 1200,end_year: (Time.now.year - 18),date_separator: '年'}, id: "input-birth_day" )
-            -# = f.date_select :birth_year,{include_blank: true, discard_month: true, discard_day: true, use_year_numbers: true} , id: "input-birth_year"
-            -# = sprintf(f.date_select :birth_year, {start_year: 1930, end_year: (Time.now.year - 18), default: Date.new(1989, 1, 1), date_separator:'%s'}, '年', '月'), id: "input-birth_year"
-            %p 年
-          .field__birth-select__wrap
-            = f.date_select :birth_month, {include_blank: true, discard_year: true, discard_day: true, use_month_numbers: true} , id: "input-birth_month"
-            %p 月
-          .field__birth-select__wrap
-            = f.date_select :birth_day, {include_blank: true, discard_year: true, use_day_numbers: true} , id: "input-birth_day"
-            %p 日
+            != sprintf(f.date_select :birth_day,{use_month_numbers:true, start_year: 1940,end_year: (Time.now.year - 18),date_separator: '&nbsp;/&nbsp;', prompt:""}, id: "input-birth_day" )
         .field__error-text
           %p#result-birth 生年月日を入力してください
-
       .actions 
         = f.submit "次へ", class: "btn"
-        -# = link_to "次へ", new_sending_destination_path, class: "btn", data: {"turbolinks": false}
-
-        -# = f.date_select(:expiration_date,with_css_classes:'input-year', order:[:month,:year,:day], use_month_numbers:true,  start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
-
-
--# f.date_select(
--#           :birth_date,
--#           start_year: 1930,
--#           end_year: (Time.now.year - 18),
--#           default: Date.new(1989, 1, 1))
-
--# = f.date_select :date, {include_blank: true, discard_year: true, use_month_numbers: true}, {class: 'time-box'}
-
--# != sprintf(f.datetime_select(:birth_date, use_month_numbers: true, date_separator: '%s', datetime_separator: '%s'), '年', '月', '日')

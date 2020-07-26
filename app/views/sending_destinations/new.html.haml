@@ -12,14 +12,12 @@
         .field__input-half
           .field__input-half__name
             = f.text_field :destination_first_name ,id: "input-first_name"
-            -# %input{id: "input-first_name"}
           .field__input-half__name
             = f.text_field :destination_last_name ,id: "input-last_name"
-            -# %input{id: "input-last_name"}
         .field__error-text
-          %p#result-first_name 姓を入力してください
+          %p#result-first_name 苗字を入力してください
         .field__error-text
-          %p#result-last_name 名を入力してください
+          %p#result-last_name お名前を入力してください
       
       .field
         .field__label
@@ -29,14 +27,12 @@
         .field__input-half
           .field__input-half__name
             = f.text_field :destination_first_name_kana ,id: "input-first_name_kana"
-            -# %input{id: "input-first_name_kana"}
           .field__input-half__name
             = f.text_field :destination_last_name_kana ,id: "input-last_name_kana"
-            -# %input{id: "input-last_name_kana"}
         .field__error-text
-          %p#result-first_name_kana 姓（カナ）を入力してください
+          %p#result-first_name_kana 苗字（カナ）を入力してください
         .field__error-text
-          %p#result-last_name_kana 名（カナ）を入力してください
+          %p#result-last_name_kana お名前（カナ）を入力してください
         
       .field
         .field__label
@@ -45,7 +41,6 @@
             必須
         .field__input
           = f.text_field :post_code ,id: "input-post_code"
-          -# %input{id: "input-postcode"}
         .field__error-text
           %p#result-postcode 郵便番号を入力してください
 
@@ -55,9 +50,7 @@
           %span.field__label__require
             必須
         .field__input--prefecture
-          -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' 
           = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture
-          -# = select_tag 'field_input-prefecture', options_for_select(["北海道", "青森", "秋田", "岩手", "山形"]), id: "input-prefecture" 
         .field__error-text
           %p#result-prefecture 都道府県を選択してください
 
@@ -68,10 +61,8 @@
             必須
         .field__input
           = f.text_field :city ,id: "input-city"
-          -# %input{id: "input-city"}
         .field__error-text
           %p#result-city 市町村を入力してください
-
       .field
         .field__label
           %p 建物名
@@ -89,7 +80,6 @@
         .field__input
           = f.text_field :house_number ,id: "input-house_number"
         .field__error-text
-
       .field
         .field__label
           %p 電話番号
@@ -98,12 +88,9 @@
         .field__input
           = f.text_field :tel ,id: "input-tel"
         .field__error-text
-          
       .actions
-        .btn
-          = f.submit class: 'btn'
-          -# = link_to "次へ", "#", class: "btn", data: {"turbolinks" => false}
+        = f.submit "次へ", class: 'btn'
 
 
 
- 
+
