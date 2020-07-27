@@ -17,6 +17,11 @@ body {
 }
 
 // scss実装
+.error_message{
+  background-color: #3CCACE;
+  color: white;
+  text-align: center;
+}
 .account-page {
   width: 60%;
   margin: 0px auto;

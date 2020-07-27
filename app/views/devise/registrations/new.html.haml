@@ -1,3 +1,5 @@
+.error_message  
+  = render "devise/shared/error_messages", resource: resource
 .account-page
   .main-head
     %h2 会員情報入力
@@ -5,7 +7,6 @@
   -# ニックネーム、名前、生年月日はemailのパラメータを使って実装(suzuki)
   .registor-form
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "devise/shared/error_messages", resource: resource
       .field
         .field__label
           = f.label :ニックネーム
