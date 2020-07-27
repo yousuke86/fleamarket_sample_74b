@@ -1,0 +1,122 @@
+//ログイン・新規登録ボタンの表示有無を後に確認、実装（近藤）
+
+.header_index
+  = render partial: 'items/header_index' 
+
+.contents
+  .contents__center
+    .product__name
+      %h1
+        商品の名前
+    %ul.image__detail
+      %li.image
+        #mainImage
+          = image_tag src="kintore/kintore.jpg", size: "270x330"
+        #imageList
+          %ul.imageList__display
+            %li
+              = image_tag src="kintore/kintore.jpg", size: "55x60"
+            %li
+              = image_tag src="kintore/protein2.jpg", size: "55x60"
+            %li
+              = image_tag src="kintore/protein1.jpg", size: "55x60"
+            %li
+              = image_tag src="kintore/danbel2.jpg", size: "55x60"
+            %li
+              = image_tag src="pict/pict-reason-02.jpg", size: "55x60"
+
+        #imageList
+          %ul.imageList__display
+            %li
+              = image_tag src="kintore/kintore.jpg", size: "55x60"
+            %li
+              = image_tag src="kintore/protein2.jpg", size: "55x60"
+            %li
+              = image_tag src="kintore/protein1.jpg", size: "55x60"
+            %li
+              = image_tag src="kintore/danbel2.jpg", size: "55x60"
+            %li
+              = image_tag src="pict/pict-reason-02.jpg", size: "55x60"    
+
+      %li.detail
+        %table
+          %tr
+            %td.exhibitor.left1
+              出品者
+            %td.exhibitor__name.right1
+              さやか
+          %tr
+            %td.left1
+              カテゴリー
+            %td.right1
+              スポーツ    
+          %tr
+            %td.left1
+              ブランド
+            %td.right1
+              マイプロテイン    
+          %tr
+            %td.left2
+              商品のサイズ
+            %td.right2
+              10kg    
+          %tr
+            %td.left2
+              商品の状態
+            %td.right2
+              新品    
+          %tr
+            %td.left2
+              配送量の負担
+            %td.sending__fee.right2
+              送料込み（出品者負担）    
+          %tr
+            %td.left2
+              配送の方法
+            %td.how__ship.right2
+              メルカリ便    
+          %tr
+            %td.left2
+              配送元地域
+            %td.right2
+              大阪府    
+          %tr
+            %td.left2
+              配送日の目安
+            %td.right2
+              1週間    
+
+    %ul.product__price
+      %li.price
+        ¥1,000,000円
+      %li.tax
+        （税抜き）
+      %li.postage__type
+        送料込み
+    .purchase__btn
+      = link_to "購入画面に進む",'#', class: "purchase__btn__name"
+
+    .product__detail
+      商品の説明欄です。
+
+    .caution
+      %p.caution__comment
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+
+    .search_box
+      %textarea.input__text
+        :preserve
+          テキスト
+          テキスト
+          テキスト
+          ここに入力してください
+    .submit__btn      
+      %button{type: "submit",  value: "送信する", class:'submit'}  
+        .p
+          コメントする
+    
+
+//のちの実装時に追加（近藤）
+
+-# .footer_index
+-#   = render partial: 'items/footer_index'   
