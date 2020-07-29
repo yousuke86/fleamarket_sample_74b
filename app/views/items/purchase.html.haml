@@ -1,0 +1,22 @@
+.purchase-container
+  .main-logo
+    = image_tag(image_path('logo/logo.png'), class: 'logo')
+  .purchase-item-container
+    .top-content
+      %h1 購入内容の確認
+    .item
+      .item__image
+        =image_tag"mypage/food.png"
+      .item__info
+        .item__info--name
+          %p 商品名がここに入ります
+        .item__info--price
+          %span.price_left 送料込み（税込）
+          %span.price_right ¥5,000
+    .item
+      .price-text
+        支払い金額
+      .item-price
+        ¥5,000
+    .purchase-button
+      %a(href="#" class="purchase-button__btn") カードで支払う
