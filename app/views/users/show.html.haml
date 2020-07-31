@@ -5,7 +5,7 @@
   .user_content__items
     %ul
       %list 
-        %a(href="#") 出品する
+        = link_to '出品する',new_item_path
       %list 
         %a(href="#" class="exhibision-now") 出品した商品 - 出品中
         .exhibision-now-info
@@ -34,7 +34,7 @@
       %list 
         %a(href="#") お問い合わせ
   .user_content__sales
-    %p メルペイ
+    %p 売上情報
     %ul
       %list 
         %a(href="#") 売上金額

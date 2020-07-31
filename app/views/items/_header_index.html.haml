@@ -1,0 +1,36 @@
+.header 
+  .header__inner
+    .header__main
+      .icon
+        = image_tag "logo/logo.png" , size: "140x40"
+      .search_box
+        %input.input-text{name: "key", placeholder: "キーワードから探す", type: "search", value: "", class: "search"}/
+        %button{type: "submit", class:'submit'} 
+          .submit_icon
+    .header__navigation
+      %ul#category__brand
+        %li.category
+          = link_to "カテゴリー",'#', class: "category__btn"
+          .menu_contents
+            %ul
+              %li
+                = link_to "飛田新地",'#', class: "font"
+              %li  
+                = link_to "信太山新地",'#', class: "font"
+              %li  
+                = link_to "松島新地",'#', class: "font"
+              %li  
+                = link_to "今里新地",'#', class: "font"  
+              %li  
+                = link_to "滝井新地",'#', class: "font"   
+        %li.brand
+          = link_to "ブランド",'#', class: "brand__btn"
+
+
+      %ul.login__registration
+        %li.login
+          = link_to "ログイン",'#', class: "login__btn" 
+          
+        %li.restration
+          = link_to "新規会員登録",'#', class: "registration__btn"
+    
