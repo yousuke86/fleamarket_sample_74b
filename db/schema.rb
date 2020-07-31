@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_11_104407) do
+ActiveRecord::Schema.define(version: 2020_07_24_083927) do
+
+  create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "prefecture", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sending_destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "destination_last_name", null: false
+    t.string "destination_first_name", null: false
+    t.string "destination_last_name_kana", null: false
+    t.string "destination_first_name_kana", null: false
+    t.string "post_code", null: false
+    t.bigint "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "buildingname_and_roomnumber"
+    t.string "tel"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prefecture_id"], name: "index_sending_destinations_on_prefecture_id"
+    t.index ["user_id"], name: "index_sending_destinations_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,8 +44,16 @@ ActiveRecord::Schema.define(version: 2020_07_11_104407) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.date "birth_day", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "sending_destinations", "prefectures"
+  add_foreign_key "sending_destinations", "users"
 end

@@ -91,18 +91,19 @@ body {
       }
     }
     .actions {
-      cursor: pointer;
-      width: 100%;
-      background-color: #3CCACE;
-      height: 50px;
-      line-height: 50px;
-      letter-spacing: 3px;
-      text-align: center;
-      border-radius: 5px;
-      .btn {
-        color: white;
+      .btn{
         font-weight: bolder;
         text-decoration: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        width: 100%;
+        background-color: #3CCACE;
+        height: 50px;
+        line-height: 50px;
+        letter-spacing: 3px;
+        text-align: center;
+        border-radius: 5px;
       }
     }
   }

@@ -1,3 +1,5 @@
+.error_message  
+  = render "devise/shared/error_messages", resource: resource
 .account-page
   .main-head
     %h2 会員情報入力
@@ -5,14 +7,13 @@
   -# ニックネーム、名前、生年月日はemailのパラメータを使って実装(suzuki)
   .registor-form
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "devise/shared/error_messages", resource: resource
       .field
         .field__label
           = f.label :ニックネーム
           %span.field__label__require
             必須
         .field__input
-          = f.email_field :email, autofocus: true, autocomplete: "email", id: "input-nickname"
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", id: "input-nickname"
         .field__error-text
           %p#result-nickname ニックネームを入力してください
 
@@ -67,13 +68,13 @@
             必須
         .field__input-half
           .field__input-half__name
-            = f.email_field :email, id: "input-first_name"
+            = f.text_field :first_name, id: "input-first_name"
           .field__input-half__name
-            = f.email_field :email, id: "input-last_name"
+            = f.text_field :last_name, id: "input-last_name"
         .field__error-text
-          %p#result-first_name 姓を入力してください
+          %p#result-first_name 苗字を入力してください
         .field__error-text
-          %p#result-last_name 名を入力してください
+          %p#result-last_name お名前を入力してください
       
       .field
         .field__label
@@ -82,13 +83,13 @@
             必須
         .field__input-half
           .field__input-half__name
-            = f.email_field :email, id: "input-first_name_kana"
+            = f.text_field :first_name_kana, id: "input-first_name_kana"
           .field__input-half__name
-            = f.email_field :email, id: "input-last_name_kana"
+            = f.text_field :last_name_kana, id: "input-last_name_kana"
         .field__error-text
-          %p#result-first_name_kana 姓（カナ）を入力してください
+          %p#result-first_name_kana 苗字（カナ）を入力してください
         .field__error-text
-          %p#result-last_name_kana 名（カナ）を入力してください
+          %p#result-last_name_kana お名前（カナ）を入力してください
 
       .field
         .field__label
@@ -97,16 +98,8 @@
             必須
         .field__birth-select
           .field__birth-select__wrap
-            = f.select :email, {"2020": 1,"2019": 2,"2018": 3,"2017": 4,"2016": 5,"2015": 6}, id: "input-year"
-            %p 年
-          .field__birth-select__wrap
-            = f.select :email, {"1": 1, "2": 2, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "11": 11, "12": 12}, id: "input-month"
-            %p 月
-          .field__birth-select__wrap
-            = f.select :email, {"1": 1, "2": 2, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "11": 11, "12": 12}, id: "input-day"
-            %p 日
+            != sprintf(f.date_select :birth_day,{use_month_numbers:true, start_year: 1940,end_year: (Time.now.year - 18),date_separator: '&nbsp;/&nbsp;', prompt:""}, id: "input-birth_day" )
         .field__error-text
           %p#result-birth 生年月日を入力してください
-
-      .actions
-        = link_to "次へ", new_sending_destination_path, class: "btn", data: {"turbolinks": false}
+      .actions 
+        = f.submit "次へ", class: "btn"

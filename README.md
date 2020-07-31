@@ -36,9 +36,8 @@ Things you may want to cover:
   |first_name|string|null:false|
   |last_name_kana|string|null:false|
   |first_name_kana|string|null:false|
-  |birth_year|date|null:false|
-  |birth_month|date|null:false|
   |birth_day|date|null:false|
+
 
   ### Association
 
@@ -55,12 +54,12 @@ Things you may want to cover:
   |destination_first_name|string|null:false|
   |destination_last_name_kana|string|null:false|
   |destination_first_name_kana|string|null:false|
-  |post_code|integer|null:false|
+  |post_code|string|null:false|
   |prefectures_id|references|null:false , foreign_key:true|
   |city|string|null:false|
   |house_number|string|null:false|
   |buildingname_and_roomnumber|string||
-  |tel|integer||
+  |tel|string||
   |user_id|references|null:false , foreign_key:true|
 
   ### Association
