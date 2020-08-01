@@ -1,11 +1,6 @@
 # Gemfile.lockを見てcapistranoのバージョンを入れる
 lock '3.14.1'
 
-require 'seed-fu/capistrano'
-
-# Trigger the task after update_code
-after 'deploy:update_code', 'db:seed_fu'
-
 # 自身のアプリ名、リポジトリ名を記述
 set :application, 'fleamarket_sample_74b'
 set :repo_url,  'git@github.com:yousuke86/fleamarket_sample_74b.git'
@@ -44,3 +39,8 @@ namespace :deploy do
   before :starting, 'deploy:upload'
   after :finishing, 'deploy:cleanup'
 end
+
+require 'seed-fu/capistrano'
+
+# Trigger the task after update_code
+after 'deploy:update_code', 'db:seed_fu'
