@@ -104,6 +104,11 @@
           text-decoration: none;
           color: black;
         }
+        .login__btn{
+          padding: 0 0 0 20px;
+          text-decoration: none;
+          color: black;
+        }
         .registration__btn {
           padding: 0 0 0 20px;
           text-decoration: none;
@@ -507,10 +512,13 @@
   position: fixed;
   padding: 15px;
   box-sizing: border-box;
+  text-decoration: none;
+  display: block;
   &:hover {
     background: rgb(48, 164, 168);
   }
   &_text{
+    display: block;
     color: #fff;
     display: block;
     font-size: 18px;
@@ -518,6 +526,7 @@
     margin-bottom: 5px;
   }
   &_icon{
+    text-decoration: none;
     height: 54px;
     width: 54px;
     background-image: image-url(icon/icon_camera);
