@@ -54,7 +54,7 @@
             &_icon{
               height: 14px;
               width: 14px;
-              background-image: url(icon/icon-search1);
+              background-image:image-url('icon/icon-search1');
               background-size: cover;
             }
           }
@@ -117,7 +117,7 @@
 .contents {
   width: 100%;
     &_top{
-      background-image: url(/assets/pict/bg-mainVisual-pict_pc.jpg);
+      background-image:image-url('/assets/pict/bg-mainVisual-pict_pc.jpg');
       background-size: cover;
       height: 560px;
       padding: 0 60px;
@@ -152,14 +152,14 @@
             .applestore{
               height: 53px;
               width: 180px;
-              background-image: url(icon/appstore.jpg);
+              background-image:image-url('icon/appstore.jpg');
               background-size: cover;
               margin-right: 15px;
             }
             .googleplay{
               height: 53px;
               width: 180px;
-              background-image: url(icon/googleplay.jpg);
+              background-image:image-url('icon/googleplay.jpg');
               background-size: cover;
             }
           }
@@ -279,14 +279,14 @@
           .third_applestore{
             height: 53px;
             width: 180px;
-            background-image: url(icon/appstore.jpg);
+            background-image:image-url('icon/appstore.jpg');
             background-size: cover;
             margin-right: 15px;
           }
           .third_googleplay{
             height: 53px;
             width: 180px;
-            background-image: url(icon/googleplay.jpg);
+            background-image:image-url('icon/googleplay.jpg');
             background-size: cover;
           }
         }
@@ -388,7 +388,7 @@
     &_sixth {
       background-color: blue;
       height: 360px;
-      background-image: image-url(pict/bg-appBanner-pict);
+      background-image:image-url('pict/bg-appBanner-pict');
       background-size: cover;
       .sixth_inner{
         padding: 100px 40px;
@@ -412,7 +412,7 @@
           .applestore{
             height: 53px;
             width: 180px;
-            background-image: url(icon/appstore.jpg);
+            background-image:image-url('icon/appstore.jpg');
             background-size: cover;
             margin-right: 15px;
 
@@ -420,7 +420,7 @@
           .googleplay{
             height: 53px;
             width: 180px;
-            background-image: url(icon/googleplay.jpg);
+            background-image:image-url('icon/googleplay.jpg');
             background-size: cover;
 
           }
