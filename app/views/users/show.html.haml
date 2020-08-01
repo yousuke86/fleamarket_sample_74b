@@ -7,14 +7,14 @@
       %list 
         = link_to '出品する',new_item_path
       %list 
-        %a(href="#" class="exhibision-now") 出品した商品 - 出品中
+        %a(class="exhibision-now") 出品した商品 - 出品中
         .exhibision-now-info
           .items
             .items-status 出品中
             =image_tag"mypage/food.png"
             %p 出品中商品名
       %list 
-        %a(href="#" class="exhibision-end") 出品した商品 - 売却済み
+        %a(class="exhibision-end") 出品した商品 - 売却済み
         .exhibision-end-info
           .items
             .items-status 売却済
@@ -25,7 +25,7 @@
             =image_tag"mypage/food.png"
             %p 売却済み商品名
       %list 
-        %a(href="#" class="purchase") 購入した商品 - 過去の取引
+        %a(class="purchase") 購入した商品 - 過去の取引
         .purchase-info
           .items
             .items-status 購入済
@@ -50,6 +50,7 @@
       %list 
         = link_to 'カード情報',new_card_path
       %list 
-        %a(href="#" class="log-out") ログアウト
+        %a(class="log-out") ログアウト
         .log-out__btn
-          %a(href="#") ログアウト
+          = link_to "ログアウト",destroy_user_session_path , method: :delete
+
