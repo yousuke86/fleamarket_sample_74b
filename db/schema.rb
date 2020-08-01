@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_07_29_151541) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "introduction", null: false
-    t.bigint "brand_id"
+    t.string "brand_name"
     t.bigint "status_id"
     t.bigint "postage_type_id"
     t.bigint "prefecture_id"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2020_07_29_151541) do
     t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["need_day_id"], name: "index_items_on_need_day_id"
     t.index ["postage_type_id"], name: "index_items_on_postage_type_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
@@ -74,7 +73,6 @@ ActiveRecord::Schema.define(version: 2020_07_29_151541) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "items", "brands"
   add_foreign_key "items", "need_days"
   add_foreign_key "items", "postage_types"
   add_foreign_key "items", "prefectures"

@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.integer :price, null: false
       t.text :introduction, null: false
-      t.references :brand, foreign_key: true
+      t.string :brand_name
       t.references :status, foreign_key: true
       t.references :postage_type, foreign_key: true
       t.references :prefecture, foreign_key: true
