@@ -2,7 +2,8 @@
   .header__inner
     .header__main
       .icon
-        = image_tag "logo/logo.png" , size: "140x40"
+        = link_to "/" do
+          = image_tag "logo/logo.png" , size: "140x40"
       .search_box
         %input.input-text{name: "key", placeholder: "キーワードから探す", type: "search", value: "", class: "search"}/
         %button{type: "submit", class:'submit'} 
@@ -29,8 +30,11 @@
 
       %ul.login__registration
         %li.login
-          = link_to "ログイン",'#', class: "login__btn" 
+          = link_to "ログイン",new_user_session_path, class: "login__btn" 
           
+        %li.logout
+          = link_to "ログアウト",destroy_user_session_path , method: :delete,class: "login__btn"
+
         %li.restration
-          = link_to "新規会員登録",'#', class: "registration__btn"
+          = link_to "新規会員登録",new_user_registration_path, class: "registration__btn"
     

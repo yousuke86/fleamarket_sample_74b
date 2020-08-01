@@ -9,7 +9,7 @@ class SendingDestinationsController < ApplicationController
     @sending_destination = SendingDestination.new(sending_destination_params)
     if @sending_destination.save
       redirect_to root_path
-    elsif @sending_destination.destination_last_name == "" ||@sending_destination.destination_first_name == "" || @sending_destination.destination_last_name_kana == "" || @sending_destination.destination_first_name_kana == "" || @sending_destination.post_code == ""
+    else @sending_destination.destination_last_name == "" ||@sending_destination.destination_first_name == "" || @sending_destination.destination_last_name_kana == "" || @sending_destination.destination_first_name_kana == "" || @sending_destination.post_code == ""
       flash.now[:alert] = '入力内容に誤りがあります。'
       render new_sending_destination_path
     end

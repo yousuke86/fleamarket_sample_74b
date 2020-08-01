@@ -17,9 +17,13 @@
         .content プライバシー
         .content フリマ利用規約
   .footer__logo
-    = image_tag "logo/logo.png" , size: "180x55", class: 'logo'
+    = link_to "/" do
+      = image_tag "logo/logo.png" , size: "180x55", class: 'logo'
     %p.copylight © FURIMA
-.purchase_btn
-  .purchase_btn_text
-    出品する
-  .purchase_btn_icon
+  .purchase_btn
+    =link_to "/items/new" do
+      .purchase_btn_text
+        出品する
+      .purchase_btn_icon
+
+
