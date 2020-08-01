@@ -114,6 +114,11 @@
           text-decoration: none;
           color: black;
           }
+        .mypage__btn{
+          padding: 0 0 0 20px;
+          text-decoration: none;
+          color: black;
+        }
       }
     }
 }
@@ -514,6 +519,9 @@
   box-sizing: border-box;
   text-decoration: none;
   display: block;
+  a{
+    text-decoration: none;
+  }
   &:hover {
     background: rgb(48, 164, 168);
   }
