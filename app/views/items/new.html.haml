@@ -1,6 +1,12 @@
 .main-logo
   = image_tag(image_path('logo/logo.png'), class: 'logo')
 = form_for @item do |f|
+  -# 画像とカテゴリーにもvalidationを掛けエラーメッセージが表示されるようにすること！（三輪）
+  - if @item.errors
+    %ul.error_message_items_new
+      - @item.errors.full_messages.each do |message|
+        %li.error_message_items_new__li= message
+
   .item-container
     .item-images
       .field
@@ -50,7 +56,7 @@
           %span.field__label__require
             必須
         .field__select
-          -# カテゴリーのcollection_selectの実装はカテゴリーテーブルを作った後にする。
+          -# カテゴリーのcollection_selectの実装はカテゴリーテーブルを作った後にする。（三輪）
           = select_tag 'field__select--category', options_for_select(["選択して下さい", "レディース", "メンズ", "ベビー・キッズ", "インテリア・住まい・小物", "本・音楽・ゲーム"]), class: "field__select--category"
         .field__error-text
           %p.result-category 選択してください

@@ -79,3 +79,4 @@ gem 'font-awesome-sass'
 gem 'payjp'
 
 gem 'seed-fu'
+gem 'rails-i18n'

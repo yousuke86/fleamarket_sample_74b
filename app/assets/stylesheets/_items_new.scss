@@ -34,6 +34,15 @@
   }
 }
 
+.error_message_items_new{
+  background-color: orangered;
+  color: white;
+
+  &__li {
+    text-align: center;
+  }
+}
+
 .item-container {
   height: 100％;
   width: 100%;
