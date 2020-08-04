@@ -10,3 +10,5 @@ ja:
         need_day: 配送までの日数
         price: 販売価格
         introduction: 商品の説明
+        prefecture: 発送元の地域
+        images: 出品画像

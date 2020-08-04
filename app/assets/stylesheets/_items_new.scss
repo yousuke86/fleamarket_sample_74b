@@ -194,9 +194,8 @@
 
         .camera-icon {
           position: absolute;
-          top: 60px;
+          top: 50%;
           left: 50%;
-          cursor: pointer;
         }
 
         p {
@@ -207,6 +206,30 @@
           top: 85px;
           left: 33%;
           cursor: pointer;
+        }
+      }
+
+      #previews {
+        width: 100%;
+        height: 250px;
+        overflow: scroll;
+        background-color: rgb(245, 245, 245);
+        border: 1px dashed rgb(192, 189, 189);
+        img {
+          margin: 20px 8px;
+        }
+      }
+
+      .js-file_group{
+        margin-top: 5px;
+      }
+
+      .js-remove {
+        &:hover{
+          padding: 3px;
+          background-color: rgb(255, 115, 0);
+          color: white;
+          border-radius: 3px;
         }
       }
     }

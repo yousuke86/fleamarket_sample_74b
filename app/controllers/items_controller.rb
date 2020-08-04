@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :set_product, except: [:index, :new, :create]
+
   def index
   end
 
@@ -17,6 +19,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+  
+
   def show
   end  
 
@@ -27,7 +38,11 @@ class ItemsController < ApplicationController
 
   def item_params
     # seller_idをcurrent_user.idへ変更すること（三輪）
-    params.require(:item).permit(:name, :introduction, :brand_name, :status_id, :postage_type_id, :prefecture_id, :need_day_id, :price, images_attributes: [:image_url]).merge(seller_id: 1)
+    params.require(:item).permit(:name, :introduction, :brand_name, :status_id, :postage_type_id, :prefecture_id, :need_day_id, :price, images_attributes: [:image_url, :_destroy, :id]).merge(seller_id: 1)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
   
 end
