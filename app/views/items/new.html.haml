@@ -17,13 +17,16 @@
         %p.image-info__message
           最大10枚までアップロードできます
         .field__input-images
-          %input{id: 'input-images'}
-            .camera-icon
-              %i.fas.fa-camera
-          %p.upload-message
-            ドラッグアンドドロップ
-            %br
-            またはクリックしてファイルをアップロード
+          #input-images
+            = f.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :image_url, class: 'js-file'
+                %br/
+                %span.js-remove 削除
+          -#   .camera-icon
+          -#     %i.fas.fa-camera
+          -# %p.upload-message
+          -#   クリックしてファイルをアップロード
         .field__error-text
           %p.result-images 画像がありません
     .item-index
@@ -115,7 +118,7 @@
             必須
         .field__input--price
           ¥
-          = f.number_field :price, class:"input-price", value: 0
+          = f.number_field :price, class:"input-price"
       .field__error-text
         %p.result-price 300以上9999999以下で入力してください
     .exhibition-button
