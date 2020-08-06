@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show]
-  resources :sending_destinations, only: [:new]
+  resources :sending_destinations, only: [:new, :create]
   resources :cards, only: [:new, :create]
   
 end

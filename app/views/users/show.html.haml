@@ -52,4 +52,5 @@
       %list 
         %a(class="log-out") ログアウト
         .log-out__btn
-          %a(href="#") ログアウト
+          = link_to "ログアウト",destroy_user_session_path , method: :delete
+
