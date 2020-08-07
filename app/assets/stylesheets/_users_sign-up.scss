@@ -17,6 +17,11 @@ body {
 }
 
 // scss実装
+.error_message{
+  background-color: #3CCACE;
+  color: white;
+  text-align: center;
+}
 .account-page {
   width: 60%;
   margin: 0px auto;
@@ -99,11 +104,11 @@ body {
         display: flex;
         width: 65%;
         &__wrap {
-          width: 70%;
+          align-items: center;
           display: flex;
-          #user_email {         //モデルを作成後、適切なid名に変更する必要あり(suzuki)
-            width: 90%;
+          #input-birth_day{         //モデルを作成後、適切なid名に変更する必要あり(suzuki)
             @include input_form();
+
           }
           p {
             font-size: 15px;
@@ -116,7 +121,6 @@ body {
     }
 
     .actions {
-      cursor: pointer;
       width: 100%;
       background-color: #3CCACE;
       height: 50px;
@@ -125,9 +129,14 @@ body {
       text-align: center;
       border-radius: 5px;
       .btn {
+        width: 100%;
+        height: 100%;
         color: white;
         font-weight: bolder;
         text-decoration: none;
+        background-color: #3CCACE;
+        border: none;
+        cursor: pointer;
       }
     }
    }

@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :show]
 
   def index
+    # @test = User.includes(:sending_destination)
   end
 
   def new
