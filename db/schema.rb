@@ -10,7 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_083927) do
+ActiveRecord::Schema.define(version: 2020_08_03_150130) do
+
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image_url", null: false
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.text "introduction", null: false
+    t.string "brand_name"
+    t.bigint "status_id"
+    t.bigint "postage_type_id"
+    t.bigint "prefecture_id"
+    t.bigint "need_day_id"
+    t.integer "seller_id", null: false
+    t.integer "buyer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["need_day_id"], name: "index_items_on_need_day_id"
+    t.index ["postage_type_id"], name: "index_items_on_postage_type_id"
+    t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
+    t.index ["status_id"], name: "index_items_on_status_id"
+  end
+
+  create_table "need_days", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "need_day", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "postage_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postage_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "prefecture", null: false
@@ -36,6 +81,12 @@ ActiveRecord::Schema.define(version: 2020_07_24_083927) do
     t.index ["user_id"], name: "index_sending_destinations_on_user_id"
   end
 
+  create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -54,6 +105,11 @@ ActiveRecord::Schema.define(version: 2020_07_24_083927) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "items"
+  add_foreign_key "items", "need_days"
+  add_foreign_key "items", "postage_types"
+  add_foreign_key "items", "prefectures"
+  add_foreign_key "items", "statuses"
   add_foreign_key "sending_destinations", "prefectures"
   add_foreign_key "sending_destinations", "users"
 end

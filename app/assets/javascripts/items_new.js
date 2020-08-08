@@ -44,7 +44,7 @@ $(function(){
   $('.field__select--category').on('blur', function(){
     let category = $(this).val();
 
-    if (category == '選択して下さい') {
+    if (category == '') {
       $('.result-category').show();
     }
     else {
@@ -55,7 +55,7 @@ $(function(){
   $('.field__select--status').on('blur', function(){
     let status = $(this).val();
 
-    if (status == '選択して下さい') {
+    if (status == '') {
       $('.result-status').show();
     }
     else {
@@ -66,7 +66,7 @@ $(function(){
   $('.field__select--postage_type').on('blur', function(){
     let postage = $(this).val();
 
-    if (postage == '選択して下さい') {
+    if (postage == '') {
       $('.result-postage').show();
     }
     else {
@@ -77,7 +77,7 @@ $(function(){
   $('.field__select--prefecture').on('blur', function(){
     let prefecture = $(this).val();
 
-    if (prefecture == '選択して下さい') {
+    if (prefecture == '') {
       $('.result-prefecture').show();
     }
     else {
@@ -88,7 +88,7 @@ $(function(){
   $('.field__select--need_day').on('blur', function(){
     let need_day = $(this).val();
 
-    if (need_day == '選択して下さい') {
+    if (need_day == '') {
       $('.result-day').show();
     }
     else {

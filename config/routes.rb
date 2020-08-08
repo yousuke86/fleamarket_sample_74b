@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
 
-  resources :items, only: [:new, :show] do
+  resources :items, only: [:new, :show, :create] do
     # collection => urlに/:idが表示されない。
     # member => urlに/:idが表示される。(三輪)
     collection do

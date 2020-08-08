@@ -47,3 +47,4 @@ Prefecture.seed(:id,
   { :id => 45, :prefecture   => "鹿児島県" },
   { :id => 46, :prefecture   => "沖縄県" }
 )
+
