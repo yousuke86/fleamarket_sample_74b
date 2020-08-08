@@ -10,9 +10,9 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :need_day
 
-  # userとのアソシエーションuserと紐づいた時にコメントアウト外す）（三輪）
-  # belongs_to :seller, class_name: "User"
-  # belongs_to :buyer, class_name: "User"
+  # userとのアソシエーション
+  belongs_to :seller, class_name: "User"
+  belongs_to :buyer, class_name: "User", optional: true 
 
   validates :name, presence: true, length:{maximum: 40}
   validates :price, presence: true, numericality:{greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
