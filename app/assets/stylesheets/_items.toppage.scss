@@ -165,12 +165,20 @@
               background-image:image-url('icon/appstore.jpg');
               background-size: cover;
               margin-right: 15px;
+              cursor: pointer;
+              &:hover{
+                opacity :0.6 ;
+              }
             }
             .googleplay{
               height: 53px;
               width: 180px;
               background-image:image-url('icon/googleplay.jpg');
               background-size: cover;
+              cursor: pointer;
+              &:hover{
+                opacity :0.6 ;
+              }
             }
           }
         }
@@ -292,12 +300,20 @@
             background-image:image-url('icon/appstore.jpg');
             background-size: cover;
             margin-right: 15px;
+            cursor: pointer;
+              &:hover{
+                opacity :0.6 ;
+              }
           }
           .third_googleplay{
             height: 53px;
             width: 180px;
             background-image:image-url('icon/googleplay.jpg');
             background-size: cover;
+            cursor: pointer;
+              &:hover{
+                opacity :0.6 ;
+              }
           }
         }
 
@@ -425,19 +441,23 @@
             background-image:image-url('icon/appstore.jpg');
             background-size: cover;
             margin-right: 15px;
-
+            cursor: pointer;
+              &:hover{
+                opacity :0.6 ;
+              }
           }
           .googleplay{
             height: 53px;
             width: 180px;
             background-image:image-url('icon/googleplay.jpg');
             background-size: cover;
-
+            cursor: pointer;
+              &:hover{
+                opacity :0.6 ;
+              }
           }
-
         }
       }
-
       
       
     }
