@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
 
-  belongs_to :user, optional: true 
+  belongs_to :user
   has_many :comments
   has_many :categories, through: :items_categories
   has_many :items_categories
@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to :postage_type
   belongs_to :prefecture
   belongs_to :need_day
+  belongs_to :sending_destination
 
   # userとのアソシエーション
   belongs_to :seller, class_name: "User"
@@ -22,5 +23,5 @@ class Item < ApplicationRecord
   validates_associated :images
   validates :images, presence: true
 
-  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :images, allow_destroy: true  
 end
