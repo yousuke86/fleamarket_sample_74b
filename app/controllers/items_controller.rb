@@ -36,13 +36,19 @@ class ItemsController < ApplicationController
     sending_destination = SendingDestination.find(@item.seller_id)
     @prefecture = Prefecture.find(sending_destination.prefecture_id)
     @need_day = NeedDay.find(@item.need_day_id)
-    # @images = Image.select(:image_url).where(item_id: @item.seller_id)
     @images = @item.images
-    # test = @item.images.new
-    # binding.pry
   end  
 
   def purchase
+  end
+
+  def edit
+    @images = @item.images
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to root_path
   end
 
   private

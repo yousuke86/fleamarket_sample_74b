@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
 
-  belongs_to :user
+  belongs_to :user, optional: true 
   has_many :comments
   has_many :categories, through: :items_categories
   has_many :items_categories
@@ -9,7 +9,8 @@ class Item < ApplicationRecord
   belongs_to :postage_type
   belongs_to :prefecture
   belongs_to :need_day
-  belongs_to :sending_destination
+  belongs_to :sending_destination, optional: true 
+  has_many :images, dependent: :destroy
 
   # userとのアソシエーション
   belongs_to :seller, class_name: "User"

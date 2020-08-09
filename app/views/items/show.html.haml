@@ -93,14 +93,20 @@
     %ul.product__price
       %li.price
         ¥
-        = @item.price
-        円  
+        = number_to_currency(@item.price, :unit => "円")
       %li.tax
         （税抜き）
       %li.postage__type
         = @postage_type.postage_type
-    .purchase__btn
-      = link_to "購入画面に進む",'#', class: "purchase__btn__name"
+        
+    - if current_user != @user
+      .purchase__btn
+        = link_to "購入画面に進む", "/items/#{params[:id]}/purchase", class: "purchase__btn__name"
+    - else
+      .edit__btn
+        = link_to "商品の編集", "/items/#{params[:id]}/edit", class: "edit__btn__name"
+      .destroy__btn
+        = link_to "この商品を削除する" ,"/items/#{params[:id]}", method: :delete, class: "destroy__btn__name"
 
     .product__detail
       = @item.introduction
