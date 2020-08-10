@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, except: [:index, :new, :create]
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
+  before_action :ensure_correct_user, only: [:edit, :update]
 
   def index
     # @test = User.includes(:sending_destination)
