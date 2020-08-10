@@ -370,15 +370,32 @@
           justify-content: center;
           padding: 40px 220px 0;
           .usage1 {
+            margin:5px ;
             background-color: white;
-          }
-          ul {
-            display: flex;
-            justify-content: space-between;
-            li {
-              font-size: 18px;
-              padding: 0 10px;
+            .picture_top{
+              width: 220px;
+              height: 150px;
+              .picture__top--item{
+                min-width: 220px;
+                max-width: 220px;
+                min-height: 150px;
+                
+              }
+              .picture__top--price{
+              }
             }
+            .picture__bottom{
+              .picture__bottom--text{
+              }
+            }
+          }
+        }
+        ul {
+          display: flex;
+          justify-content: space-between;
+          li {
+            font-size: 18px;
+            padding: 0 10px;
           }
         }
       }  
@@ -399,14 +416,23 @@
           justify-content: center;
           padding: 40px 220px 0;
           .usage1 {
+            margin:5px ;
             background-color: white;
-          }
-          ul {
-            display: flex;
-            justify-content: space-between;
-            li {
-              font-size: 18px;
-              padding: 0 10px;
+            .picture_top{
+              width: 220px;
+              height: 150px;
+              .picture__top--item{
+                min-width: 220px;
+                max-width: 220px;
+                min-height: 150px;
+                
+              }
+              .picture__top--price{
+              }
+            }
+            .picture__bottom{
+              .picture__bottom--text{
+              }
             }
           }
         }
@@ -562,3 +588,5 @@
     margin: 0 auto;
   }
 }
+
+

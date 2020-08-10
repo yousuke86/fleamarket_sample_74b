@@ -83,96 +83,101 @@
       %h1.contents_feature 
       ピックアップカテゴリー
       %ul.how_use
-        %li.usage1
-          .pic1
-          = image_tag src="kintore/danbel2.jpg", size: "220x150"
-          %p.pic1_list 
-            %p.pic1_list_name 
-              ダンベル
-              %ul.list
-                %li.pic1_list_details 
-                  50,000円  
-                %li.like ⭐️1
-          
-        %li.usage1
-          .pic1
-          = image_tag src="kintore/protein1.jpg", size: "220x150"
-          %p.pic2_list
-            %p.pic1_list_name 
-              プロテイン
-              %ul.list
-                %li.pic1_list_details 
-                  9,000円  
-                %li.like ⭐️0
+        - @items.each do |item|
+          .usage1
+            .picture_top
+              - item.images.first(1).each do |image|
+                = image_tag image.image_url.to_s, class: "picture__top--item"
+            .picture__top--price
+              ¥
+              = item.price
 
-        %li.usage1
-          .pic1
-          = image_tag src="kintore/protein2.jpg", size: "220x150"
-          %p.pic2_list
-            %p.pic1_list_name 
-              詰め合わせ
-              %ul.list
-                %li.pic1_list_details 
-                  2,000円  
-                %li.like ⭐️1
+            .picture__bottom
+              %p.picture__bottom--text
+                = item.name
 
-        %li.usage1
-          .pic1
-          = image_tag src="kintore/kintore.jpg", size: "220x150"
-          %p.pic2_list
-            %p.pic1_list_name 
-              ダンベル
-              %ul.list
-                %li.pic1_list_details 
-                  1,000,000円  
-                %li.like ⭐️238
-  
+        - @items.each do |item|
+          .usage1
+            .picture_top
+              - item.images.first(1).each do |image|
+                = image_tag image.image_url.to_s, class: "picture__top--item"
+            .picture__top--price
+              ¥
+              = item.price
 
+            .picture__bottom
+              %p.picture__bottom--text
+                = item.name
+        - @items.each do |item|
+          .usage1
+            .picture_top
+              - item.images.first(1).each do |image|
+                = image_tag image.image_url.to_s, class: "picture__top--item"
+            .picture__top--price
+              ¥
+              = item.price
+            .picture__bottom
+              %p.picture__bottom--text
+                = item.name
+        - @items.each do |item|
+          .usage1
+            .picture_top
+              - item.images.first(1).each do |image|
+                = image_tag image.image_url.to_s, class: "picture__top--item"
+            .picture__top--price
+              ¥
+              = item.price
+            .picture__bottom
+              %p.picture__bottom--text
+                = item.name
     .contents_archive
       %h1.contents_feature 
       ピックアップブランド
       %ul.how_use
-        %li.usage1
-          .pic1
-          = image_tag src="kintore/danbel2.jpg", size: "220x150"
-          %p.pic1_list 
-            %p.pic1_list_name 
-              ダンベル
-              %ul.list
-                %li.pic1_list_details 
-                  50,000円  
-                %li.like ⭐️1
-          
-        %li.usage1
-          .pic1
-          = image_tag src="kintore/protein1.jpg", size: "220x150"
-          %p.pic1_list_name 
-            プロテイン
-            %ul.list
-              %li.pic1_list_details 
-                9,000円  
-              %li.like ⭐️0
+        - @items.each do |item|
+          .usage1
+            .picture_top
+              - item.images.first(1).each do |image|
+                = image_tag image.image_url.to_s, class: "picture__top--item"
+            .picture__top--price
+              ¥
+              = item.price
+            .picture__bottom
+              %p.picture__bottom--text
+                = item.name
 
-        %li.usage1
-          .pic1
-          = image_tag src="kintore/protein2.jpg", size: "220x150"
-          %p.pic1_list_name 
-            詰め合わせ
-            %ul.list
-              %li.pic1_list_details 
-                2,000円  
-              %li.like ⭐️1
+          .usage1
+            .picture_top
+              - item.images.first(1).each do |image|
+                = image_tag image.image_url.to_s, class: "picture__top--item"
+            .picture__top--price
+              ¥
+              = item.price
+            .picture__bottom
+              %p.picture__bottom--text
+                = item.name
 
-        %li.usage1
-          .pic1
-          = image_tag src="kintore/kintore.jpg", size: "220x150"
-          %p.pic2_list
-            %p.pic1_list_name 
-              ダンベル
-              %ul.list
-                %li.pic1_list_details 
-                  1,000,000円  
-                %li.like ⭐️238
+          .usage1
+            .picture_top
+              - item.images.first(1).each do |image|
+                = image_tag image.image_url.to_s, class: "picture__top--item"
+            .picture__top--price
+              ¥
+              = item.price
+            .picture__bottom
+              %p.picture__bottom--text
+                = item.name          
+          .usage1
+            .picture_top
+              - item.images.first(1).each do |image|
+                = image_tag image.image_url.to_s, class: "picture__top--item"
+            .picture__top--price
+              ¥
+              = item.price
+            .picture__bottom
+              %p.picture__bottom--text
+                = item.name
+
 
   .contents_sixth
     .sixth_inner
@@ -186,3 +191,16 @@
 
 .footer_index
   = render partial: 'footer_index' 
+
+
+- @items.each do |item|
+  .picture
+    .picture_top
+      - item.images.first(1).each do |image|
+        = image_tag image.image_url.to_s, class: "picture__top--item"
+      .picture__top--price
+        ¥
+        = item.price
+    .picture__bottom
+      %p.picture__bottom--text
+        = item.name
