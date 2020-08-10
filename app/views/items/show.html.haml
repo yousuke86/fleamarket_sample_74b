@@ -109,7 +109,7 @@
         = link_to "この商品を削除する" ,"/items/#{params[:id]}", method: :delete, class: "destroy__btn__name"
 
     .product__detail
-      = @item.introduction
+      = safe_join(@item.introduction.split("\n"),tag(:br))
 
     .caution
       %p.caution__comment
