@@ -85,98 +85,34 @@
       %ul.how_use
         - @items.each do |item|
           .usage1
-            .picture_top
-              - item.images.first(1).each do |image|
-                = image_tag image.image_url.to_s, class: "picture__top--item"
-            .picture__top--price
-              ¥
-              = item.price
-
-            .picture__bottom
-              %p.picture__bottom--text
-                = item.name
-
-        - @items.each do |item|
-          .usage1
-            .picture_top
-              - item.images.first(1).each do |image|
-                = image_tag image.image_url.to_s, class: "picture__top--item"
-            .picture__top--price
-              ¥
-              = item.price
-
-            .picture__bottom
-              %p.picture__bottom--text
-                = item.name
-        - @items.each do |item|
-          .usage1
-            .picture_top
-              - item.images.first(1).each do |image|
-                = image_tag image.image_url.to_s, class: "picture__top--item"
-            .picture__top--price
-              ¥
-              = item.price
-            .picture__bottom
-              %p.picture__bottom--text
-                = item.name
-        - @items.each do |item|
-          .usage1
-            .picture_top
-              - item.images.first(1).each do |image|
-                = image_tag image.image_url.to_s, class: "picture__top--item"
-            .picture__top--price
-              ¥
-              = item.price
-            .picture__bottom
-              %p.picture__bottom--text
-                = item.name
+            = link_to items_path(item), class: "usage" do
+              .picture_top
+                - item.images.first(1).each do |image|
+                  = image_tag image.image_url.to_s, class: "picture__top--item"
+              .picture__top--price
+                ¥
+                = item.price
+              .picture__bottom
+                %p.picture__bottom--text
+                  = item.name
     .contents_archive
       %h1.contents_feature 
       ピックアップブランド
       %ul.how_use
         - @items.each do |item|
           .usage1
-            .picture_top
-              - item.images.first(1).each do |image|
-                = image_tag image.image_url.to_s, class: "picture__top--item"
-            .picture__top--price
-              ¥
-              = item.price
-            .picture__bottom
-              %p.picture__bottom--text
-                = item.name
+            = link_to items_path(item), class: "usage" do
+              .picture_top
+                - item.images.first(1).each do |image|
+                  = image_tag image.image_url.to_s, class: "picture__top--item"
+              .picture__top--price
+                ¥
+                = item.price
+              .picture__bottom
+                %p.picture__bottom--text
+                  = item.name
 
-          .usage1
-            .picture_top
-              - item.images.first(1).each do |image|
-                = image_tag image.image_url.to_s, class: "picture__top--item"
-            .picture__top--price
-              ¥
-              = item.price
-            .picture__bottom
-              %p.picture__bottom--text
-                = item.name
 
-          .usage1
-            .picture_top
-              - item.images.first(1).each do |image|
-                = image_tag image.image_url.to_s, class: "picture__top--item"
-            .picture__top--price
-              ¥
-              = item.price
-            .picture__bottom
-              %p.picture__bottom--text
-                = item.name          
-          .usage1
-            .picture_top
-              - item.images.first(1).each do |image|
-                = image_tag image.image_url.to_s, class: "picture__top--item"
-            .picture__top--price
-              ¥
-              = item.price
-            .picture__bottom
-              %p.picture__bottom--text
-                = item.name
 
 
   .contents_sixth
@@ -192,15 +128,3 @@
 .footer_index
   = render partial: 'footer_index' 
 
--4.times do 
-  - @items.each do |item|
-    .picture
-      .picture_top
-        - item.images.first(1).each do |image|
-          = image_tag image.image_url.to_s, class: "picture__top--item"
-        .picture__top--price
-          ¥
-          = item.price
-      .picture__bottom
-        %p.picture__bottom--text
-          = item.name
