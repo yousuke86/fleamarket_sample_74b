@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, except: [:index, :new, :create]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
     # @test = User.includes(:sending_destination)
@@ -58,6 +59,14 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def ensure_correct_user
+    @item = Item.find(params[:id])
+    if @item.seller_id != current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to root_path
+    end
   end
   
 end
