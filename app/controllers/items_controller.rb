@@ -31,11 +31,10 @@ class ItemsController < ApplicationController
 
   def show
     @user = User.find(@item.seller_id)
-    @status = Status.find(@item.status_id)
-    @postage_type = PostageType.find(@item.postage_type_id)
-    sending_destination = SendingDestination.find(@item.seller_id)
-    @prefecture = Prefecture.find(sending_destination.prefecture_id)
-    @need_day = NeedDay.find(@item.need_day_id)
+    @status = @item.status
+    @postage_type = @item.postage_type
+    @prefecture = @item.prefecture
+    @need_day = @item.need_day
     @images = @item.images
   end  
 

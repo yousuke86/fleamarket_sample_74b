@@ -17,30 +17,6 @@
             - @images.each do |image|
               %li
               = image_tag src = "#{image.image_url}", size: "55x60"
-              -# = image_tag src="kintore/kintore.jpg", size: "55x60"
-              -# = image_tag src = "#{@images[1].image_url}"
-            -# %li
-            -#   = image_tag src="kintore/protein2.jpg", size: "55x60"
-            -# %li
-            -#   = image_tag src="kintore/protein1.jpg", size: "55x60"
-            -# %li
-            -#   = image_tag src="kintore/danbel2.jpg", size: "55x60"
-            -# %li
-            -#   = image_tag src="pict/pict-reason-02.jpg", size: "55x60"
-
-        -# #imageList
-        -#   %ul.imageList__display
-        -#     %li
-        -#       = image_tag src="kintore/kintore.jpg", size: "55x60"
-        -#     %li
-        -#       = image_tag src="kintore/protein2.jpg", size: "55x60"
-        -#     %li
-        -#       = image_tag src="kintore/protein1.jpg", size: "55x60"
-        -#     %li
-        -#       = image_tag src="kintore/danbel2.jpg", size: "55x60"
-        -#     %li
-        -#       = image_tag src="pict/pict-reason-02.jpg", size: "55x60"    
-
       %li.detail
         %table
           %tr
@@ -61,11 +37,6 @@
               = @item.brand_name
           %tr
             %td.left2
-              商品のサイズ
-            %td.right2
-              10kg
-          %tr
-            %td.left2
               商品の状態    
             %td.right2
               = @status.status
@@ -74,11 +45,6 @@
               配送量の負担
             %td.sending__fee.right2
               = @postage_type.postage_type
-          %tr
-            %td.left2
-              配送の方法
-            %td.how__ship.right2
-              メルカリ便    
           %tr
             %td.left2
               配送元地域
