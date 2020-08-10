@@ -85,7 +85,7 @@
       %ul.how_use
         - @items.each do |item|
           .usage1
-            = link_to items_path(item), class: "usage" do
+            = link_to item_path(item), class: "usage" do
               .picture_top
                 - item.images.first(1).each do |image|
                   = image_tag image.image_url.to_s, class: "picture__top--item"
