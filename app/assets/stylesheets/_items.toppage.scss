@@ -1,3 +1,7 @@
+a{
+  text-decoration: none;
+}
+
 @mixin piture__style {
   display: inline-block;
   top: 0;
@@ -358,7 +362,7 @@
         background-color: #EEEEEE;
         height: 420px;
         text-align: center;
-        font-size: 30px;
+        font-size: 25px;
         padding: 30px 0 0 0;
         .contents_feature {
           text-align: center;
@@ -385,7 +389,7 @@
                 
               }
               .picture__top--price{
-                
+                text-size-adjust: 20%;
               }
             }
             .picture__bottom{
@@ -408,11 +412,11 @@
         background-color: #EEEEEE;
         height: 530px;
         text-align: center;
-        font-size: 30px;
+        font-size: 25px;
         padding: 60px 0 0 0;
         .contents_feature {
           text-align: center;
-          font-size: 30px;
+          font-size: 30x;
           padding: 30px 0 0 0;
         }
         .how_use {
@@ -423,7 +427,6 @@
           .usage1 {
             margin:5px ;
             background-color: white;
-            
             .picture_top{
               width: 220px;
               height: 150px;
@@ -440,6 +443,7 @@
             }
             .picture__bottom{
               .picture__bottom--text{
+
               }
             }
           }
