@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :show, :purchase]
 
   def index
-    @items = Item.all
+    @items = Item.where(buyer_id: nil)
   end
 
   def new
