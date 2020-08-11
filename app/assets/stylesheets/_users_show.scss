@@ -52,7 +52,7 @@
       padding-top: 40px;
     }
     p {
-      font-size: 15px;
+      font-size: 18px;
       text-align: center;
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
       color: white;
@@ -122,8 +122,10 @@
 
 .items {
   display: flex;
-  justify-content: center;
-  width: 100%;
+  justify-content: start;
+  padding-left: 200px;
+  margin: auto;
+  width: auto;
   height: 60px;
   border-bottom: 1px solid lightgray;
   background-color: rgba(230, 238, 120, 0.15);
@@ -149,6 +151,10 @@
   p{
     line-height: 60px;
     margin-left: 50px;
+  }
+
+  h3 {
+    line-height: 60px;
   }
 }
 
