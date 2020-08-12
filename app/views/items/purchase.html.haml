@@ -1,6 +1,7 @@
 .purchase-container
   .main-logo
-    = image_tag(image_path('logo/logo.png'), class: 'logo')
+    = link_to "/" do
+      = image_tag(image_path('logo/logo.png'), class: 'logo')
   .purchase-item-container
     .top-content
       %h1 購入内容の確認
