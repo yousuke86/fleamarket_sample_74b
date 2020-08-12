@@ -38,9 +38,27 @@ class ItemsController < ApplicationController
   
 
   def show
+    @user = User.find(@item.seller_id)
+    @status = @item.status
+    @postage_type = @item.postage_type
+    @prefecture = @item.prefecture
+    @need_day = @item.need_day
+    @images = @item.images
   end  
 
   def purchase
+  end
+
+  def edit
+    @images = @item.images
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    else
+      redirect_to item_path
+    end
   end
 
   private
