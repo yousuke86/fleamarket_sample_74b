@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
 
   def index
-    # @test = User.includes(:sending_destination)
+    @items = Item.where(buyer_id: nil)
   end
 
   def new
