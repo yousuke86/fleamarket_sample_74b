@@ -2,8 +2,8 @@ class ItemsController < ApplicationController
 
   # @item = Item.find(params[:id])のbefore_action（三輪）
   before_action :set_item, except: [:index, :new, :create, :purchase]
-  # 出品者以外は編集を許可しないbefore_action（三輪）/後ほど：destroyも追加
-  before_action :ensure_correct_user, only: [:edit, :update]
+
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
 
   def index
