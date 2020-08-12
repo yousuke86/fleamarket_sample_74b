@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, except: [:index, :new, :create, :show, :purchase]
+  # @item = Item.find(params[:id])のbefore_action（三輪）
+  before_action :set_item, except: [:index, :new, :create, :purchase]
+  # 出品者以外は編集を許可しないbefore_action（三輪）/後ほど：destroyも追加
+  before_action :ensure_correct_user, only: [:edit, :update]
+
 
   def index
     @items = Item.where(buyer_id: nil)
@@ -20,6 +24,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    
+  end
+
   def update
     if @item.update(item_params)
       redirect_to root_path
@@ -30,9 +38,27 @@ class ItemsController < ApplicationController
   
 
   def show
+    @user = User.find(@item.seller_id)
+    @status = @item.status
+    @postage_type = @item.postage_type
+    @prefecture = @item.prefecture
+    @need_day = @item.need_day
+    @images = @item.images
   end  
 
   def purchase
+  end
+
+  def edit
+    @images = @item.images
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    else
+      redirect_to item_path
+    end
   end
 
   private
@@ -43,6 +69,14 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def ensure_correct_user
+    @item = Item.find(params[:id])
+    if @item.seller_id != current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to root_path
+    end
   end
   
 end
