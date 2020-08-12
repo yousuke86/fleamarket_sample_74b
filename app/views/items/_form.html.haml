@@ -35,11 +35,6 @@
                 = file_field_tag :image_url, name: "product[images_attributes][#{@item.images.count}][src]", class: 'js-file'
                 .js-remove 削除
 
-
-          -#   .camera-icon
-          -#     %i.fas.fa-camera
-          -# %p.upload-message
-          -#   クリックしてファイルをアップロード
         .field__error-text
           %p.result-images 画像がありません
     .item-index
