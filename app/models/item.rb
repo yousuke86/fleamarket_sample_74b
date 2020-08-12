@@ -9,6 +9,8 @@ class Item < ApplicationRecord
   belongs_to :postage_type
   belongs_to :prefecture
   belongs_to :need_day
+  belongs_to :sending_destination, optional: true 
+  has_many :images, dependent: :destroy
 
   # userとのアソシエーション
   belongs_to :seller, class_name: "User"
@@ -22,5 +24,5 @@ class Item < ApplicationRecord
   validates_associated :images
   validates :images, presence: true
 
-  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :images, allow_destroy: true  
 end

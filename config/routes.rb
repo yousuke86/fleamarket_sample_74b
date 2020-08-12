@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
 
-  resources :items, only: [:new, :show, :create,:index] do
+
+  resources :items, only: [:new, :show, :create, :edit,:index :update, :destroy] do
     # collection => urlに/:idが表示されない。
     # member => urlに/:idが表示される。(三輪)
-    collection do
+    member do
       get 'purchase'
       post 'purchase'
     end
