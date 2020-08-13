@@ -1,6 +1,11 @@
+.header_index
+  = render partial: 'items/header_index' 
+  
+
 .purchase-container
   .main-logo
-    = image_tag(image_path('logo/logo.png'), class: 'logo')
+    = link_to "/" do
+      = image_tag(image_path('logo/logo.png'), class: 'logo')
   .purchase-item-container
     .top-content
       %h1 購入内容の確認
@@ -20,3 +25,6 @@
         ¥5,000
     .purchase-button
       %a(href="#" class="purchase-button__btn") カードで支払う
+
+.footer_index
+  = render partial: 'items/footer_index' 

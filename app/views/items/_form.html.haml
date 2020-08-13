@@ -1,3 +1,6 @@
+.header_index
+  = render partial: 'header_index' 
+
 .main-logo
   = image_tag(image_path('logo/logo.png'), class: 'logo')
 = form_for @item do |f|
@@ -132,3 +135,6 @@
     .exhibition-button
       = f.submit "出品する", class:"exhibition-button__btn"
       = link_to "もどる", root_path, {class: "back-btn"}
+
+      .footer_index
+  = render partial: 'footer_index' 
