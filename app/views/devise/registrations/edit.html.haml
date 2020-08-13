@@ -28,9 +28,211 @@
     %i (we need your current password to confirm your changes)
     %br/
     = f.password_field :current_password, autocomplete: "current-password"
+  .field
+    .field__label
+      = f.label :ニックネーム
+      %span.field__label__require
+        必須
+    .field__input
+      = f.text_field :nickname, autofocus: true, autocomplete: "nickname", id: "input-nickname"
+    .field__error-text
+      %p#result-nickname ニックネームを入力してください
+
+  -# .field
+  -#   .field__label
+  -#     = f.label :メールアドレス
+  -#     %span.field__label__require
+  -#       必須
+  -#   .field__input
+  -#     = f.email_field :email, id: "input-email"
+  -#   .field__error-text
+  -#     %p#result-email メールアドレスを入力してください
+
+
+  -# .field
+  -#   .field__label
+  -#     = f.label :パスワード
+  -#     - if @minimum_password_length
+  -#       %em
+  -#         (#{@minimum_password_length} 文字以内)
+  -#     %span.field__label__require
+  -#       必須
+  -#   .field__input
+  -#     = f.password_field :password, id: "input-password"
+  -#   .field__error-text
+  -#     %p#result-password パスワードを入力してください
+  -#   .field__form-info
+  -#     ※ 英字と数字の両方を含めて設定してください
+
+  -# .field
+  -#   .field__label
+  -#     = f.label :パスワード（確認用）
+  -#     %span.field__label__require
+  -#       必須
+  -#   .field__input
+  -#     = f.password_field :password_confirmation, id: "input-password_confirmation"
+  -#   .field__error-text
+  -#     %p#result-password_confirmation パスワードを入力してください（確認用）
+  -#   .field__form-info
+  -#     ※ 英字と数字の両方を含めて設定してください
+
+  -# .field
+  -#   .field__sub-head
+  -#     本人確認
+  -#   .field__description
+  -#     %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。<br>他のお客さまに公開されることはありません。
+
+  .field
+    .field__label
+      = f.label :お名前（全角）
+      %span.field__label__require
+        必須
+    .field__input-half
+      .field__input-half__name
+        = f.text_field :first_name, id: "input-first_name"
+      .field__input-half__name
+        = f.text_field :last_name, id: "input-last_name"
+    .field__error-text
+      %p#result-first_name 苗字を入力してください
+    .field__error-text
+      %p#result-last_name お名前を入力してください
+
+  .field
+    .field__label
+      = f.label :お名前カナ（全角）
+      %span.field__label__require
+        必須
+    .field__input-half
+      .field__input-half__name
+        = f.text_field :first_name_kana, id: "input-first_name_kana"
+      .field__input-half__name
+        = f.text_field :last_name_kana, id: "input-last_name_kana"
+    .field__error-text
+      %p#result-first_name_kana 苗字（カナ）を入力してください
+    .field__error-text
+      %p#result-last_name_kana お名前（カナ）を入力してください
+
+  .field
+    .field__label
+      = f.label :生年月日
+      %span.field__label__require
+        必須
+    .field__birth-select
+      .field__birth-select__wrap
+        != sprintf(f.date_select :birth_day,{use_month_numbers:true, start_year: 1940,end_year: (Time.now.year - 18),date_separator: '&nbsp;/&nbsp;', prompt:""}, id: "input-birth_day" )
+    .field__error-text
+      %p#result-birth 生年月日を入力してください
   .actions
     = f.submit "Update"
 %h3 Cancel my account
 %p
   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
 = link_to "Back", :back
+
+
+-# .error_message  
+-#   = render "devise/shared/error_messages", resource: resource
+-# .account-page
+-#   .main-head
+-#     %h2 会員情報入力
+
+-#   -# ニックネーム、名前、生年月日はemailのパラメータを使って実装(suzuki)
+-#   .registor-form
+-#     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#       .field
+-#         .field__label
+-#           = f.label :ニックネーム
+-#           %span.field__label__require
+-#             必須
+-#         .field__input
+-#           = f.text_field :nickname, autofocus: true, autocomplete: "nickname", id: "input-nickname"
+-#         .field__error-text
+-#           %p#result-nickname ニックネームを入力してください
+
+-#       .field
+-#         .field__label
+-#           = f.label :メールアドレス
+-#           %span.field__label__require
+-#             必須
+-#         .field__input
+-#           = f.email_field :email, id: "input-email"
+-#         .field__error-text
+-#           %p#result-email メールアドレスを入力してください
+
+
+-#       .field
+-#         .field__label
+-#           = f.label :パスワード
+-#           - if @minimum_password_length
+-#             %em
+-#               (#{@minimum_password_length} 文字以内)
+-#           %span.field__label__require
+-#             必須
+-#         .field__input
+-#           = f.password_field :password, id: "input-password"
+-#         .field__error-text
+-#           %p#result-password パスワードを入力してください
+-#         .field__form-info
+-#           ※ 英字と数字の両方を含めて設定してください
+
+-#       .field
+-#         .field__label
+-#           = f.label :パスワード（確認用）
+-#           %span.field__label__require
+-#             必須
+-#         .field__input
+-#           = f.password_field :password_confirmation, id: "input-password_confirmation"
+-#         .field__error-text
+-#           %p#result-password_confirmation パスワードを入力してください（確認用）
+-#         .field__form-info
+-#           ※ 英字と数字の両方を含めて設定してください
+
+-#       .field
+-#         .field__sub-head
+-#           本人確認
+-#         .field__description
+-#           %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。<br>他のお客さまに公開されることはありません。
+      
+-#       .field
+-#         .field__label
+-#           = f.label :お名前（全角）
+-#           %span.field__label__require
+-#             必須
+-#         .field__input-half
+-#           .field__input-half__name
+-#             = f.text_field :first_name, id: "input-first_name"
+-#           .field__input-half__name
+-#             = f.text_field :last_name, id: "input-last_name"
+-#         .field__error-text
+-#           %p#result-first_name 苗字を入力してください
+-#         .field__error-text
+-#           %p#result-last_name お名前を入力してください
+      
+-#       .field
+-#         .field__label
+-#           = f.label :お名前カナ（全角）
+-#           %span.field__label__require
+-#             必須
+-#         .field__input-half
+-#           .field__input-half__name
+-#             = f.text_field :first_name_kana, id: "input-first_name_kana"
+-#           .field__input-half__name
+-#             = f.text_field :last_name_kana, id: "input-last_name_kana"
+-#         .field__error-text
+-#           %p#result-first_name_kana 苗字（カナ）を入力してください
+-#         .field__error-text
+-#           %p#result-last_name_kana お名前（カナ）を入力してください
+
+-#       .field
+-#         .field__label
+-#           = f.label :生年月日
+-#           %span.field__label__require
+-#             必須
+-#         .field__birth-select
+-#           .field__birth-select__wrap
+-#             != sprintf(f.date_select :birth_day,{use_month_numbers:true, start_year: 1940,end_year: (Time.now.year - 18),date_separator: '&nbsp;/&nbsp;', prompt:""}, id: "input-birth_day" )
+-#         .field__error-text
+-#           %p#result-birth 生年月日を入力してください
+-#       .actions 
+-#         = f.submit "登録", class: "btn"
+          

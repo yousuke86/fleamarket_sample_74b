@@ -1,3 +1,6 @@
+.header_index
+  = render partial: 'items/header_index' 
+  
 .user_content
   .user_content__info
     %h2
@@ -16,7 +19,7 @@
               .items
                 .items-status 出品中
                 = image_tag item.images.first.image_url.url
-                %p #{item.name}
+                = link_to "#{item.name}", item_path(item), class:"to_items_show" 
           - else
             .items
               %h3 出品中の商品はありません
@@ -28,7 +31,7 @@
               .items
                 .items-status 売却済
                 = image_tag item.images.first.image_url.url
-                %p #{item.name}
+                = link_to "#{item.name}", item_path(item), class:"to_items_show" 
           - else
             .items
               %h3 売却済みの商品はありません
@@ -40,7 +43,7 @@
               .items
                 .items-status 購入済
                 = image_tag item.images.first.image_url.url
-                %p #{item.name}
+                = link_to "#{item.name}", item_path(item), class:"to_items_show" 
           - else
             .items
               %h3 購入した商品はありません
@@ -60,7 +63,7 @@
         = link_to '本人情報',edit_user_registration_path
       %list 
         -# sending_destinationのnewに飛ぶかeditに飛ぶか確認（三輪）
-        = link_to '発送・お届け先住所変更',  new_sending_destination_path
+        = link_to '発送・お届け先住所',  new_sending_destination_path
       %list 
         = link_to 'カード情報',new_card_path
       %list 
@@ -68,4 +71,5 @@
         .log-out__btn
           = link_to "ログアウト",destroy_user_session_path , method: :delete
 
-
+.footer_index
+  = render partial: 'items/footer_index' 

@@ -33,7 +33,7 @@
 // }
 
 .user_content {
-  height: 100vh;
+  height: 100%;
   width: 60%;
   margin: 30px auto;
 
@@ -148,9 +148,22 @@
     width: 60px;
   }
 
-  p{
+  a{
+    border: none;
+    box-shadow: none;
+    font-weight: normal;
+    font-size: 15px;
+    background-color: transparent;
+    height: 100%;
+    margin: 0;
+    width: auto;
     line-height: 60px;
-    margin-left: 50px;
+    padding-left: 50px;
+    
+    &:hover {
+      background-color: transparent;
+      text-decoration: underline;
+    }
   }
 
   h3 {
