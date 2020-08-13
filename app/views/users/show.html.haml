@@ -1,3 +1,7 @@
+.header_index
+  = render partial: 'header_index' 
+  
+
 .user_content
   .user_content__info
     %h2
@@ -55,3 +59,5 @@
         .log-out__btn
           = link_to "ログアウト",destroy_user_session_path , method: :delete
 
+.footer_index
+  = render partial: 'footer_index' 
