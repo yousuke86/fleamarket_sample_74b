@@ -1,3 +1,7 @@
+.header_index
+  = render partial: 'items/header_index' 
+  
+
 .container
   .content__title
     %h2 クレジットカード情報入力
@@ -33,3 +37,6 @@
           = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
         .content-bottom#card_token
           = f.submit '追加する', class: 'content-bottom--add-btn', id: 'token_submit'
+          
+.footer_index
+  = render partial: 'items/footer_index' 

@@ -1,3 +1,7 @@
+.header_index
+  = render partial: 'items/header_index' 
+  
+
 .error_message  
   = render "devise/shared/error_messages", resource: resource
 .account-page
@@ -104,3 +108,5 @@
       .actions 
         = f.submit "次へ", class: "btn"
           
+.footer_index
+  = render partial: 'items/footer_index' 
