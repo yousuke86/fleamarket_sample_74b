@@ -1,0 +1,15 @@
+.button_to {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.button_to_toppage {
+  margin-top: 50px;
+  text-align: center;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
