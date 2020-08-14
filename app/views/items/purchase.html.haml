@@ -11,20 +11,26 @@
       %h1 購入内容の確認
     .item
       .item__image
-        =image_tag"mypage/food.png"
+        - @item.images.each do |image|
+          = image_tag image.image_url.to_s, class: "purchase-item-image"
       .item__info
         .item__info--name
-          %p 商品名がここに入ります
+          %p
+            = @item.name
         .item__info--price
           %span.price_left 送料込み（税込）
-          %span.price_right ¥5,000
+          %span.price_right 
+            ¥
+            = @item.price
+            
     .item
       .price-text
         支払い金額
       .item-price
-        ¥5,000
+        ¥
+        = @item.price
     .purchase-button
-      %a(href="#" class="purchase-button__btn") カードで支払う
+      %a(href="/" class="purchase-button__btn") カードで支払う
 
 .footer_index
   = render partial: 'items/footer_index' 

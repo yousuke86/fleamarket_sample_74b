@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   # @item = Item.find(params[:id])のbefore_action（三輪）
-  before_action :set_item, except: [:index, :new, :create, :purchase]
+  before_action :set_item, except: [:index, :new, :create]
 
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 

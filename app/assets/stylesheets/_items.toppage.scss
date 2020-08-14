@@ -378,6 +378,11 @@ a{
           .usage1 {
             margin:5px ;
             background-color: white;
+            box-shadow: rgba(0,0,0,0.22) 0px 2px 4px;
+            cursor: pointer;
+            &:hover{
+              transform:scale(1.05);
+            }
             .picture_top{
               width: 220px;
               height: 150px;
@@ -427,6 +432,8 @@ a{
           .usage1 {
             margin:5px ;
             background-color: white;
+            box-shadow: rgba(0,0,0,0.22) 0px 2px 4px;
+            cursor: pointer;
             .picture_top{
               width: 220px;
               height: 150px;
