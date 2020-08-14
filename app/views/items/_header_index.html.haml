@@ -28,13 +28,17 @@
           = link_to "ブランド",'#', class: "brand__btn"
       - if user_signed_in?
         %ul.login__registration
+          %li.username
+            こんにちは
+            =current_user.nickname
+            さん
           %li.mypage
             = link_to "マイページ",user_path(current_user), class: "mypage__btn"
           %li.logout
             = link_to "ログアウト",destroy_user_session_path , method: :delete,class: "login__btn"
       - else
         %ul.login__registration
-        
+          
           %li.login
             = link_to "ログイン",new_user_session_path, class: "login__btn" 
           %li.restration
