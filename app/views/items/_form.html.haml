@@ -2,7 +2,9 @@
   = render partial: 'header_index' 
 
 .main-logo
-  = image_tag(image_path('logo/logo.png'), class: 'logo')
+  = link_to "/" do
+    = image_tag "logo/logo.png" , size: "180x60"
+
 = form_for @item do |f|
   -# カテゴリーにもvalidationを掛けエラーメッセージが表示されるようにすること！（三輪）
   - if @item.errors
