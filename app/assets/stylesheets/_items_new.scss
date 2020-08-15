@@ -18,6 +18,34 @@
   padding-left: 10px;
 }
 
+//カテゴリー機能のscss部分（近藤）
+
+#parent_category {
+  width: 650px;
+  height: 35px;
+}
+#child_category {
+  width: 650px;
+  height: 35px;
+}
+#grandchild_category{
+  width: 650px;
+  height: 35px;
+}
+.listing-default--require{
+  background-color: #3CCACE;
+  margin: 0 0 0 8px;
+  padding: 3px 6px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 14px;
+  vertical-align: top;
+}
+.listing-default__label {
+  font-weight: bold;
+}
+
+
 
 // scss実装
 .main-logo {

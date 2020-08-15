@@ -63,12 +63,14 @@
       %h2 商品の詳細
       .field
         .field__label
-          %p カテゴリー
-          %span.field__label__require
-            必須
-        .field__select
-          -# カテゴリーのcollection_selectの実装はカテゴリーテーブルを作った後にする。（三輪）
-          = select_tag 'field__select--category', options_for_select(["選択して下さい", "レディース", "メンズ", "ベビー・キッズ", "インテリア・住まい・小物", "本・音楽・ゲーム"]), class: "field__select--category"
+        .listing-form-box
+          .listing-product-detail__category
+            = f.label 'カテゴリー', class: 'listing-default__label'
+            %span.listing-default--require 必須
+            .listing-select-wrapper
+              .listing-select-wrapper__box
+                = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down  
         .field__error-text
           %p.result-category 選択してください
       .field
