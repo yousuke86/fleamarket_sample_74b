@@ -11,8 +11,7 @@
       %h1 購入内容の確認
     .item
       .item__image
-        - @item.images.each do |image|
-          = image_tag image.image_url.to_s, class: "purchase-item-image"
+        = image_tag @item.images.first.image_url.to_s, class: "purchase-item-image"
       .item__info
         .item__info--name
           %p
