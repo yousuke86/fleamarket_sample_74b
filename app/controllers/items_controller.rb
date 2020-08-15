@@ -15,6 +15,16 @@ class ItemsController < ApplicationController
     @items = Item.where(buyer_id: nil)
   end
 
+  def create
+    @item = Item.new(item_params)
+    #binding.pry
+    if @item.save
+      redirect_to root_path
+    else
+      render new_item_path
+    end
+  end
+
   def new
     @item = Item.new
     @item.images.new
@@ -27,27 +37,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def create
-    @item = Item.new(item_params)
-    #binding.pry
-    if @item.save
-      redirect_to root_path
-    else
-      render new_item_path
-    end
-  end
+  
 
-  def edit
-    
-  end
-
-  def update
-    if @item.update(item_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
   
 
   def show
@@ -58,6 +49,17 @@ class ItemsController < ApplicationController
     @need_day = @item.need_day
     @images = @item.images
   end  
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+  
+
+  
 
   def purchase
   end

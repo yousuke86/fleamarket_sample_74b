@@ -42,7 +42,7 @@ $(document).on('turbolinks:load', function() {
       console.log(parentCategory)
       if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
         $.ajax({
-          url: 'get_category_children',
+          url: '/items/:id/get_category_children',
           type: 'GET',
           data: { parent_name: parentCategory },
           dataType: 'json'
@@ -74,7 +74,7 @@ $(document).on('turbolinks:load', function() {
       console.log(childId)
       if (childId != "---"){ //子カテゴリーが初期値でないことを確認
         $.ajax({
-          url: 'get_category_grandchildren',
+          url: '/items/:id/get_category_grandchildren',
           type: 'GET',
           data: { child_id: childId },
           dataType: 'json'
