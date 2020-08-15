@@ -1,0 +1,34 @@
+// cards/new.html.hamlのscssファイルです
+
+.card-show {
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+  padding: 100px 0;
+}
+
+
+.card-title {
+  width: 700px;
+  margin: 0 auto;
+  font-size: 24px;
+  padding: 8px 0;
+  background-color: white;
+  text-align: center;
+
+  h2 {
+    font-weight: bold;
+  }
+}
+
+.content-card {
+  width: 700px;
+  height: 509px;
+  margin: 3px auto;
+  background-color: white;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  font-weight: 600;
+
+  
+}
