@@ -1,15 +1,18 @@
 class ItemsController < ApplicationController
 
   # @item = Item.find(params[:id])のbefore_action（三輪）
+
   before_action :set_item, except: [:index, :new, :create, :purchase, :get_category_children, :get_category_grandchildren]
   # 出品者以外は編集を許可しないbefore_action（三輪）/後ほど：destroyも追加
-  before_action :ensure_correct_user, only: [:edit, :update]
+
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
 
   before_action :set_category_parent_array, only: [:create, :edit, :update]
 
 
   def index
-    # @test = User.includes(:sending_destination)
+    @items = Item.where(buyer_id: nil)
   end
 
   def new
@@ -48,10 +51,17 @@ class ItemsController < ApplicationController
   
 
   def show
+    @user = User.find(@item.seller_id)
+    @status = @item.status
+    @postage_type = @item.postage_type
+    @prefecture = @item.prefecture
+    @need_day = @item.need_day
+    @images = @item.images
   end  
 
   def purchase
   end
+
 
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
@@ -62,6 +72,18 @@ class ItemsController < ApplicationController
   def get_category_grandchildren
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find("#{params[:child_id]}").children
+
+  def edit
+    @images = @item.images
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    else
+      redirect_to item_path
+    end
+
   end
 
   private

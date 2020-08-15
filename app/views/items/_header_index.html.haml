@@ -26,19 +26,20 @@
                 = link_to "滝井新地",'#', class: "font"   
         %li.brand
           = link_to "ブランド",'#', class: "brand__btn"
-
-
-      %ul.login__registration
-        %li.login
-          = link_to "ログイン",new_user_session_path, class: "login__btn" 
+      - if user_signed_in?
+        %ul.login__registration
+          %li.username
+            こんにちは
+            =current_user.nickname
+            さん
+          %li.mypage
+            = link_to "マイページ",user_path(current_user), class: "mypage__btn"
+          %li.logout
+            = link_to "ログアウト",destroy_user_session_path , method: :delete,class: "login__btn"
+      - else
+        %ul.login__registration
           
-        %li.logout
-          = link_to "ログアウト",destroy_user_session_path , method: :delete,class: "login__btn"
-
-        %li.restration
-          = link_to "新規会員登録",new_user_registration_path, class: "registration__btn"
-    
-        -# %li.mypage
-        -#   = link_to "マイページ",user_path(current_user), class: "mypage__btn"
-
-        -# マイページはログイン後に表示されるように実装してから表示すること森田
+          %li.login
+            = link_to "ログイン",new_user_session_path, class: "login__btn" 
+          %li.restration
+            = link_to "新規会員登録",new_user_registration_path, class: "registration__btn"

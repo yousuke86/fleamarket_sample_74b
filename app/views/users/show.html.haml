@@ -1,8 +1,12 @@
+.header_index
+  = render partial: 'items/header_index' 
+  
 .user_content
   .user_content__info
     %h2
       =current_user.nickname
-    %p 出品数 : 〇〇  /  購入数 : 〇〇
+    %p 出品数 : #{@saling_items.length} /  購入数 : #{@buyer_items.length}
+
   .user_content__items
     %ul
       %list 
@@ -10,28 +14,39 @@
       %list 
         %a(class="exhibision-now") 出品した商品 - 出品中
         .exhibision-now-info
-          .items
-            .items-status 出品中
-            =image_tag"mypage/food.png"
-            %p 出品中商品名
+          - if @saling_items.length != 0
+            - @saling_items.each do |item|
+              .items
+                .items-status 出品中
+                = image_tag item.images.first.image_url.url
+                = link_to "#{item.name}", item_path(item), class:"to_items_show" 
+          - else
+            .items
+              %h3 出品中の商品はありません
       %list 
         %a(class="exhibision-end") 出品した商品 - 売却済み
         .exhibision-end-info
-          .items
-            .items-status 売却済
-            =image_tag"mypage/food.png"
-            %p 売却済み商品名
-          .items
-            .items-status 売却済
-            =image_tag"mypage/food.png"
-            %p 売却済み商品名
+          - if @sold_items.length != 0
+            - @sold_items.each do |item|
+              .items
+                .items-status 売却済
+                = image_tag item.images.first.image_url.url
+                = link_to "#{item.name}", item_path(item), class:"to_items_show" 
+          - else
+            .items
+              %h3 売却済みの商品はありません
       %list 
         %a(class="purchase") 購入した商品 - 過去の取引
         .purchase-info
-          .items
-            .items-status 購入済
-            =image_tag"mypage/food.png"
-            %p 購入した商品名
+          - if @buyer_items.length != 0
+            - @buyer_items.each do |item|
+              .items
+                .items-status 購入済
+                = image_tag item.images.first.image_url.url
+                = link_to "#{item.name}", item_path(item), class:"to_items_show" 
+          - else
+            .items
+              %h3 購入した商品はありません
       %list 
         %a(href="#") お問い合わせ
   .user_content__sales
@@ -45,13 +60,17 @@
     %p 設定
     %ul
       %list 
-        %a(href="#") 本人情報
+        = link_to '本人情報',edit_user_registration_path
       %list 
-        %a(href="#") 発送・お届け先住所変更
+        -# sending_destinationのnewに飛ぶかeditに飛ぶか確認（三輪）
+        = link_to '発送・お届け先住所',  new_sending_destination_path
       %list 
         = link_to 'カード情報',new_card_path
       %list 
         %a(class="log-out") ログアウト
         .log-out__btn
           = link_to "ログアウト",destroy_user_session_path , method: :delete
+
+.footer_index
+  = render partial: 'items/footer_index' 
 
