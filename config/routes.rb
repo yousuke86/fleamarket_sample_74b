@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show]
-  resources :sending_destinations, only: [:new, :create]
+  resources :sending_destinations, only: [:new, :create, :edit, :update]
   resources :cards, only: [:new, :create]
   
 end
