@@ -2,8 +2,7 @@ class Item < ApplicationRecord
 
   belongs_to :user, optional: true 
   has_many :comments
-  has_many :categories, through: :items_categories
-  has_many :items_categories
+  belongs_to :category
   has_many :images
   belongs_to :status
   belongs_to :postage_type

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     member do
       get 'purchase'
       post 'purchase'
+      get 'get_category_children', defaults: { fomat: 'json'}
+      get 'get_category_grandchildren', defaults: { fomat: 'json'}
     end
   end
 
