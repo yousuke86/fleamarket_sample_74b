@@ -48,6 +48,7 @@ class ItemsController < ApplicationController
     @prefecture = @item.prefecture
     @need_day = @item.need_day
     @images = @item.images
+    @category = @item.category
   end  
 
   def update
