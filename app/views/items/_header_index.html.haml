@@ -34,6 +34,8 @@
             さん
           %li.mypage
             = link_to "マイページ",user_path(current_user), class: "mypage__btn"
+          %li.card
+            = link_to "カード情報",card_path(current_user), class: "card__btn"
           %li.logout
             = link_to "ログアウト",destroy_user_session_path , method: :delete,class: "login__btn"
       - else
