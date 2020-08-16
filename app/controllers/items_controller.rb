@@ -15,7 +15,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    #binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -31,7 +30,6 @@ class ItemsController < ApplicationController
     #データベースから、親カテゴリーのみ抽出し、配列化
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
-      # binding.pry
     end
   end
 
@@ -55,10 +53,7 @@ class ItemsController < ApplicationController
 
   def purchase
     card = Card.where(user_id: current_user.id).first
-      
-    #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
-      #登録された情報がない場合にカード登録画面に移動
       redirect_to new_card_path, notice: "クレジットカード情報を入力してください"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -73,7 +68,7 @@ class ItemsController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-      :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+      :amount => @item.price, #支払金額を入力
       :customer => card.customer_id, #顧客ID
       :currency => 'jpy', #日本円
     )

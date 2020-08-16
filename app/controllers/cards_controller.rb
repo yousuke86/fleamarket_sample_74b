@@ -16,12 +16,12 @@ class CardsController < ApplicationController
       if @card.save
         redirect_to cards_path
       else
-        redirect_to root_path
+        redirect_to root_path, notice: "クレジットカード登録に失敗しました"
       end
     end
   end
 
-  def delete #PayjpとCardデータベースを削除します
+  def delete
     card = Card.where(user_id: current_user.id).first
     if card.blank?
     else
@@ -33,7 +33,7 @@ class CardsController < ApplicationController
       redirect_to new_card_path
   end
 
-  def show #Cardのデータpayjpに送り情報を取り出します
+  def show
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to new_card_path
