@@ -18,6 +18,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :sending_destinations, only: [:new, :create, :edit, :update]
-  resources :cards, only: [:new, :create,:show]
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
   
 end
