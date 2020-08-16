@@ -20,16 +20,77 @@
           %span.price_left 送料込み（税込）
           %span.price_right 
             ¥
-            = @item.price
+            = number_to_currency(@item.price, :unit => "円")
             
     .item
       .price-text
         支払い金額
       .item-price
         ¥
-        = @item.price
+        = number_to_currency(@item.price, :unit => "円")
+    
+    .item
+      .card-text
+        支払い方法
+      .card-info
+        - if @default_card_information.blank?
+        - else
+          -#以下カード情報を表示
+          = "**** **** **** " + @default_card_information.last4
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+
     .purchase-button
-      %a(href="/" class="purchase-button__btn") カードで支払う
+      = form_tag(action: :pay, method: :post) do
+        %button カードで支払う
 
 .footer_index
   = render partial: 'items/footer_index' 
+
+
+
+
+
+
+
+-# .header_index
+-#   = render partial: 'items/header_index' 
+
+-#   .purchase-item-container
+-#     .top-content
+-#       %h1 購入内容の確認
+-#     .item
+-#       .item__image
+-#         =image_tag"mypage/food.png"
+-#       .item__info
+-#         .item__info--name
+-#           %p 商品名がここに入ります
+-#         .item__info--price
+-#           %span.price_left 送料込み（税込）
+-#           %span.price_right ¥5,000
+-#     .item
+-#       .price-text
+-#         支払い金額
+-#       .item-price
+-#         ¥5,000
+
+-#     .item
+-#       .card-text
+-#         支払い方法
+-#       .card-info
+-#         - if @default_card_information.blank?
+-#         - else
+-#           -#以下カード情報を表示
+-#           = "**** **** **** " + @default_card_information.last4
+-#           - exp_month = @default_card_information.exp_month.to_s
+-#           - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+-#           = exp_month + " / " + exp_year
+          
+-#   .purchase-button
+-#     = form_tag(action: :pay, method: :post) do
+-#       -# .purchase-button__btn
+-#       %button カードで支払う
+
+-# .footer_index
+-#   = render partial: 'items/footer_index' 

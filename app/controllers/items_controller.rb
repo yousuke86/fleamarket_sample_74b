@@ -3,10 +3,8 @@ class ItemsController < ApplicationController
   # @item = Item.find(params[:id])のbefore_action（三輪）
 
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
-  # 出品者以外は編集を許可しないbefore_action（三輪）/後ほど：destroyも追加
 
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
-
 
   before_action :set_category_parent_array, only: [:create, :edit, :update]
 
@@ -17,7 +15,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    #binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -33,13 +30,8 @@ class ItemsController < ApplicationController
     #データベースから、親カテゴリーのみ抽出し、配列化
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
-      # binding.pry
     end
   end
-
-  
-
-  
 
   def show
     @user = User.find(@item.seller_id)
@@ -58,11 +50,31 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-  
-
-  
 
   def purchase
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      redirect_to new_card_path, notice: "クレジットカード情報を入力してください"
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      #保管した顧客IDでpayjpから情報取得
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+
+  def pay
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+      amount: @item.price, #支払金額を入力
+      customer: card.customer_id, #顧客ID
+      currency: 'jpy', #日本円
+    )
+    @item.buyer_id = current_user.id
+    @item.save
+    redirect_to root_path, notice: "支払いが完了しました"
   end
 
 

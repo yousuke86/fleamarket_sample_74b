@@ -1,4 +1,16 @@
-// cards/new.html.hamlのscssファイルです
+// cards/show.html.hamlのscssファイルです
+
+@mixin border_top {
+  border-top: solid 1px gainsboro;
+}
+
+@mixin border_bottom {
+  border-bottom: solid 1px gainsboro;
+}
+
+@mixin border_right {
+  border-right: solid 1px gainsboro;
+}
 
 .card-show {
   height: 100vh;
@@ -15,6 +27,7 @@
   padding: 8px 0;
   background-color: white;
   text-align: center;
+  border-top: solid 1px gainsboro;
 
   h2 {
     font-weight: bold;
@@ -23,14 +36,62 @@
 
 .content-card {
   width: 700px;
-  height: 509px;
+  height: 150px;
   margin: 3px auto;
   background-color: white;
-  padding-top: 30px;
-  padding-bottom: 40px;
   font-weight: 600;
 
   .card-infomation{
-    
+    display: flex;
+    .info-left {
+      width: 40%;
+      @include border_right();
+      &--name {
+        line-height: 50px;
+        padding-left: 10px;
+      }
+      &--number {
+        line-height: 50px;
+        @include border_top();
+        padding-left: 10px;
+      }
+      &--date {
+        line-height: 50px;
+        @include border_top();
+        @include border_bottom();
+        padding-left: 10px;
+      }
+    }
+    .info-right {
+      width: 40%;
+      @include border_right();
+      &--name {
+        line-height: 50px;
+        text-align: center;
+      }
+      &--number {
+        line-height: 50px;
+        @include border_top();
+        text-align: center;
+      }
+      &--date {
+        line-height: 50px;
+        @include border_top();
+        @include border_bottom();
+        text-align: center;
+      }
+    }
+    .btn {
+      width: 20%;
+      height: 152px;
+      @include border_bottom();
+      position: relative;
+    }
+    button {
+      position: absolute;
+      top: 57px;
+      left: 40px;
+      line-height: 30px;
+    }
   }
 }

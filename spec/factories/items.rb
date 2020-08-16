@@ -11,6 +11,7 @@ FactoryBot.define do
     # brand_name   {"コクヨ"}
     # buyer_id   {1}
     seller_id   {1}
+    category_id {1}
     
     images  { [build(:image)] }
     
