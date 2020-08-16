@@ -3,10 +3,8 @@ class ItemsController < ApplicationController
   # @item = Item.find(params[:id])のbefore_action（三輪）
 
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
-  # 出品者以外は編集を許可しないbefore_action（三輪）/後ほど：destroyも追加
 
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
-
 
   before_action :set_category_parent_array, only: [:create, :edit, :update]
 
@@ -57,6 +55,7 @@ class ItemsController < ApplicationController
 
   def purchase
     card = Card.where(user_id: current_user.id).first
+      
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
@@ -74,10 +73,12 @@ class ItemsController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-      :amount => 500, #支払金額を入力（itemテーブル等に紐づけても良い）
+      :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
       :customer => card.customer_id, #顧客ID
       :currency => 'jpy', #日本円
     )
+    @item.buyer_id = current_user.id
+    @item.save
     redirect_to root_path, notice: "支払いが完了しました"
   end
 
