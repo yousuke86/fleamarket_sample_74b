@@ -93,3 +93,4 @@ gem 'fog-aws'
 gem 'pry-rails'
 
 gem 'ancestry'
+gem 'dotenv-rails'
