@@ -16,7 +16,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      get 'amount'
+      get 'point'
+    end
+  end
   resources :sending_destinations, only: [:new, :create, :edit, :update]
   resources :cards, only: [:new, :create]
   

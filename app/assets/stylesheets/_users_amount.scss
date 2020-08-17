@@ -1,0 +1,55 @@
+.amount_container{
+  height: 100vh;
+  width: 100%;
+  background-color: whitesmoke;
+  padding: 100px 0;
+}
+
+.amount_top_index {
+  width: 700px;
+  margin: 0 auto;
+  font-size: 20px;
+  padding: 8px 0;
+  background-color: white;
+  text-align: center;
+  
+  h2 {
+    font-weight: bold;
+  }
+}
+
+.amount_price_content {
+  width: 700px;
+  height: 250px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 8px 0;
+  background-color: white;
+  text-align: center;
+  
+  p {
+    margin-top: 100px;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  i {
+    margin-top: 100px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #3CCACE;
+  }
+}
+
+.back_to_mypage {
+  margin: 30px auto;
+  width: 700px;
+  text-align: center;
+  font-size: 18px;
+  
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

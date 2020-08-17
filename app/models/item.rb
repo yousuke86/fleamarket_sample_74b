@@ -3,7 +3,6 @@ class Item < ApplicationRecord
   belongs_to :user, optional: true 
   has_many :comments
   belongs_to :category
-  has_many :images
   belongs_to :status
   belongs_to :postage_type
   belongs_to :prefecture

@@ -53,9 +53,9 @@
     %p 売上情報
     %ul
       %list 
-        %a(href="#") 売上金額
+        = link_to '売上金額', amount_user_path(@user)
       %list 
-        %a(href="#") ポイント
+        = link_to 'ポイント', point_user_path(@user)
   .user_content__config
     %p 設定
     %ul
