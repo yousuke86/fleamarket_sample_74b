@@ -82,6 +82,8 @@
     .contents_pickup
       %h1.contents_feature 
       ピックアップカテゴリー
+      %h3.list_contents 
+        新規投稿商品
       %ul.how_use
         - @items.each do |item|
           .usage1
@@ -98,6 +100,8 @@
     .contents_archive
       %h1.contents_feature 
       ピックアップブランド
+      %h3.list_contents 
+        アーカイバ
       %ul.how_use
         - @items.each do |item|
           .usage1
