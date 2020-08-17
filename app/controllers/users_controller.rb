@@ -14,5 +14,16 @@ class UsersController < ApplicationController
     # 購入した商品
     @buyer_items = @user.buyed_items
   end  
+
+  def amount
+    @user = current_user
+    @sold_items = @user.sold_items
+  end
+
+
+  def point
+    @user = current_user
+    @sold_items = @user.sold_items
+  end
   
 end

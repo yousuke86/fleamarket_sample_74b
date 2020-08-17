@@ -1,0 +1,14 @@
+.amount_container
+  .amount_top_index
+    %h2 #{@user.nickname}さんの売上金額
+
+  .amount_price_content
+    - amount_price = 0
+    - @sold_items.each do |item|
+      - amount_price = amount_price + item.price
+    = icon("fas", "coins")
+    %p #{amount_price}円
+
+  .back_to_mypage
+    = link_to "マイページへ戻る", user_path(@user)
+ 
