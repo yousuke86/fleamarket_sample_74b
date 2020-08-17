@@ -129,12 +129,19 @@
         .applestore
         .googleplay
 
-.purchase_btn
-  =link_to "/items/new" do
-    .purchase_btn_text
-      出品する
-    .purchase_btn_icon
 
+- if user_signed_in?
+  .purchase_btn
+    =link_to "/items/new" do
+      .purchase_btn_text
+        出品する
+      .purchase_btn_icon
+- else
+  .purchase_btn
+    =link_to "/users/sign_in" do
+      .purchase_btn_text
+        出品する
+      .purchase_btn_icon
 
 
 .footer_index
