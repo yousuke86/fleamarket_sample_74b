@@ -171,8 +171,6 @@ a{
             .applestore{
               height: 53px;
               width: 180px;
-              background-image:image-url('icon/appstore.jpg');
-              background-size: cover;
               margin-right: 15px;
               cursor: pointer;
               &:hover{
@@ -182,8 +180,6 @@ a{
             .googleplay{
               height: 53px;
               width: 180px;
-              background-image:image-url('icon/googleplay.jpg');
-              background-size: cover;
               cursor: pointer;
               &:hover{
                 opacity :0.6 ;
@@ -303,22 +299,20 @@ a{
         &_icon{
           display: flex;
           padding-top: 35px;
-          .third_applestore{
+          .applestore{
             height: 53px;
             width: 180px;
-            background-image:image-url('icon/appstore.jpg');
-            background-size: cover;
+            
             margin-right: 15px;
             cursor: pointer;
               &:hover{
                 opacity :0.6 ;
               }
           }
-          .third_googleplay{
+          .googleplay{
             height: 53px;
             width: 180px;
-            background-image:image-url('icon/googleplay.jpg');
-            background-size: cover;
+            
             cursor: pointer;
               &:hover{
                 opacity :0.6 ;
@@ -375,6 +369,10 @@ a{
           padding: 30px 0 0 0;
           
         }
+        .list_contents{
+          color: #3CCACE;
+          cursor: pointer;
+        }
         .how_use {
           display: flex;
           justify-content: center;
@@ -428,6 +426,10 @@ a{
           text-align: center;
           font-size: 30x;
           padding: 30px 0 0 0;
+        }
+        .list_contents{
+          color: #3CCACE;
+          cursor: pointer;
         }
         .how_use {
           display: flex;
@@ -491,8 +493,7 @@ a{
           .applestore{
             height: 53px;
             width: 180px;
-            background-image:image-url('icon/appstore.jpg');
-            background-size: cover;
+            
             margin-right: 15px;
             cursor: pointer;
               &:hover{
@@ -502,8 +503,7 @@ a{
           .googleplay{
             height: 53px;
             width: 180px;
-            background-image:image-url('icon/googleplay.jpg');
-            background-size: cover;
+            
             cursor: pointer;
               &:hover{
                 opacity :0.6 ;

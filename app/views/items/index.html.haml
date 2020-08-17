@@ -12,8 +12,10 @@
           %br
           フリマアプリです
         .link_contents
-          .applestore
-          .googleplay
+          = link_to image_tag('icon/appstore.jpg', class: "applestore"), 'https://www.apple.com/jp/ios/app-store/'
+          = link_to image_tag('icon/googleplay.jpg', class: "googleplay"), 'https://play.google.com/'
+          
+          
   .contents__second
     
     %h1.contents_reason 
@@ -51,8 +53,8 @@
         %br
         ほしかったあの商品に出会えるかもしれません。</b>
       .contents_third_inner_icon
-        .third_applestore
-        .third_googleplay
+        = link_to image_tag('icon/appstore.jpg', class: "applestore"), 'https://www.apple.com/jp/ios/app-store/'
+        = link_to image_tag('icon/googleplay.jpg', class: "googleplay"), 'https://play.google.com/'
 
 
   .contents_forth
@@ -82,6 +84,8 @@
     .contents_pickup
       %h1.contents_feature 
       ピックアップカテゴリー
+      %h3.list_contents 
+        新規投稿商品
       %ul.how_use
         - @items.each do |item|
           .usage1
@@ -98,6 +102,8 @@
     .contents_archive
       %h1.contents_feature 
       ピックアップブランド
+      %h3.list_contents 
+        アーカイバ
       %ul.how_use
         - @items.each do |item|
           .usage1
@@ -122,15 +128,22 @@
       .inner_sub_title
         今すぐ無料ダウンロード！
       .inner_icon
-        .applestore
-        .googleplay
+        = link_to image_tag('icon/appstore.jpg', class: "applestore"), 'https://www.apple.com/jp/ios/app-store/'
+        = link_to image_tag('icon/googleplay.jpg', class: "googleplay"), 'https://play.google.com/'
 
-.purchase_btn
-  =link_to "/items/new" do
-    .purchase_btn_text
-      出品する
-    .purchase_btn_icon
 
+- if user_signed_in?
+  .purchase_btn
+    =link_to "/items/new" do
+      .purchase_btn_text
+        出品する
+      .purchase_btn_icon
+- else
+  .purchase_btn
+    =link_to "/users/sign_in" do
+      .purchase_btn_text
+        出品する
+      .purchase_btn_icon
 
 
 .footer_index
