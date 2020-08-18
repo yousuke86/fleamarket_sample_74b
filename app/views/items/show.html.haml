@@ -27,8 +27,12 @@
           %tr
             %td.left1
               カテゴリー
-            %td.right1
-              = @item.category.name
+            %td.rightcategory
+              = @parent.name
+              %br
+              = @child.name
+              %br
+              = @grandchild.name
               -# カテゴリーのテーブルができてから実装する（鈴木）
           %tr
             %td.left1
