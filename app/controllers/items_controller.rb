@@ -40,7 +40,9 @@ class ItemsController < ApplicationController
     @prefecture = @item.prefecture
     @need_day = @item.need_day
     @images = @item.images
-    @category = @item.category
+    @grandchild = Category.find(@item.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
   end  
 
   def update

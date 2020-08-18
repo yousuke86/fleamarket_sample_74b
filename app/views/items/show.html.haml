@@ -27,9 +27,12 @@
           %tr
             %td.left1
               カテゴリー
-            %td.right1
-              = @item.category.name
-              -# カテゴリーのテーブルができてから実装する（鈴木）
+            %td.rightcategory
+              = @parent.name
+              %br
+              = @child.name
+              %br
+              = @grandchild.name
           %tr
             %td.left1
               ブランド    
