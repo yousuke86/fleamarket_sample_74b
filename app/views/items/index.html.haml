@@ -84,8 +84,12 @@
     .contents_pickup
       %h1.contents_feature 
       ピックアップカテゴリー
-      %h3.list_contents 
-        = link_to "出品商品一覧", list_item_path(current_user), class: "list_contents"
+      - if user_signed_in?
+        %h3.list_contents 
+          = link_to "アーカイブ", list_item_path(current_user), class: "list_contents"
+      - else
+        %h3.list_contents 
+          = link_to "アーカイブ", new_user_registration_path, class: "list_contents"
       %ul.how_use
         - @items.each do |item|
           .usage1
@@ -102,8 +106,12 @@
     .contents_archive
       %h1.contents_feature 
       ピックアップブランド
-      %h3.list_contents 
-        = link_to "出品商品一覧", list_item_path(current_user), class: "list_contents"
+      - if user_signed_in?
+        %h3.list_contents 
+          = link_to "出品商品一覧", list_item_path(current_user), class: "list_contents"
+      - else
+        %h3.list_contents 
+          = link_to "出品商品一覧", new_user_registration_path, class: "list_contents"
       %ul.how_use
         - @items.each do |item|
           .usage1
