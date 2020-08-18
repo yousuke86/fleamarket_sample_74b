@@ -1,0 +1,30 @@
+.header_index
+  = render partial: 'header_index' 
+  
+
+
+.list_header
+  .list_title
+    出品商品一覧
+  
+.listing
+  .list_items
+    - @items.each do |item|
+      .square
+        = link_to item_path(item), class: "square" do
+          .picture_top
+            - item.images.first(1).each do |image|
+              = image_tag image.image_url.to_s, class: "picture__top--item"
+          .picture__top--price
+            ¥
+            = number_to_currency(item.price, :unit => "円")
+          .picture__bottom
+            %p.picture__bottom--text
+              = item.name
+
+
+
+
+.footer_index
+  = render partial: 'footer_index' 
+

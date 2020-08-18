@@ -77,6 +77,11 @@ class ItemsController < ApplicationController
     redirect_to root_path, notice: "支払いが完了しました"
   end
 
+  def list
+    @items = Item.where(buyer_id: nil)
+    @item = Item.find(params[:id])
+    @images = @item.images
+  end
 
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得

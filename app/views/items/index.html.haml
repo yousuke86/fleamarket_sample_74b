@@ -85,7 +85,7 @@
       %h1.contents_feature 
       ピックアップカテゴリー
       %h3.list_contents 
-        新規投稿商品
+        = link_to "出品商品一覧", list_item_path(current_user), class: "list_contents"
       %ul.how_use
         - @items.each do |item|
           .usage1
@@ -93,31 +93,30 @@
               .picture_top
                 - item.images.first(1).each do |image|
                   = image_tag image.image_url.to_s, class: "picture__top--item"
-              .picture__top--price
-                ¥
-                = number_to_currency(item.price, :unit => "円")
-              .picture__bottom
-                %p.picture__bottom--text
-                  = item.name
-    .contents_archive
-      %h1.contents_feature 
-      ピックアップブランド
-      %h3.list_contents 
-        アーカイバ
-      %ul.how_use
-        - @items.each do |item|
-          .usage1
-            = link_to item_path(item), class: "usage" do
-              .picture_top
-                - item.images.first(1).each do |image|
-                  = image_tag image.image_url.to_s, class: "picture__top--item"
-              .picture__top--price
+              .picture__top--price 
                 ¥
                 = number_to_currency(item.price, :unit => "円")
               .picture__bottom
                 .picture__bottom--text
                   = item.name
-
+    .contents_archive
+      %h1.contents_feature 
+      ピックアップブランド
+      %h3.list_contents 
+        = link_to "出品商品一覧", list_item_path(current_user), class: "list_contents"
+      %ul.how_use
+        - @items.each do |item|
+          .usage1
+            = link_to item_path(item), class: "usage" do
+              .picture_top
+                - item.images.first(1).each do |image|
+                  = image_tag image.image_url.to_s, class: "picture__top--item"
+              .picture__top--price 
+                ¥
+                = number_to_currency(item.price, :unit => "円")
+              .picture__bottom
+                .picture__bottom--text
+                  = item.name
 
 
 

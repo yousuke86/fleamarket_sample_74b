@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       post 'pay'
       get 'get_category_children', defaults: { fomat: 'json'}
       get 'get_category_grandchildren', defaults: { fomat: 'json'}
+      get 'list'
     end
   end
 
