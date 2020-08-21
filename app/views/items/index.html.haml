@@ -89,7 +89,7 @@
           = link_to "アーカイブ", list_item_path(current_user), class: "list_contents"
       - else
         %h3.list_contents 
-          = link_to "アーカイブ", new_user_registration_path, class: "list_contents"
+          = link_to "アーカイブ", new_user_session_path, class: "list_contents"
       %ul.how_use
         - @items.each do |item|
           .usage1
@@ -111,7 +111,7 @@
           = link_to "出品商品一覧", list_item_path(current_user), class: "list_contents"
       - else
         %h3.list_contents 
-          = link_to "出品商品一覧", new_user_registration_path, class: "list_contents"
+          = link_to "出品商品一覧", new_user_session_path, class: "list_contents"
       %ul.how_use
         - @items.each do |item|
           .usage1
