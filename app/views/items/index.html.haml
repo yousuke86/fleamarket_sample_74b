@@ -99,7 +99,7 @@
                   = image_tag image.image_url.to_s, class: "picture__top--item"
               .picture__top--price 
                 ¥
-                = number_to_currency(item.price, :unit => "円")
+                = item.price
               .picture__bottom
                 .picture__bottom--text
                   = item.name
@@ -121,7 +121,7 @@
                   = image_tag image.image_url.to_s, class: "picture__top--item"
               .picture__top--price 
                 ¥
-                = number_to_currency(item.price, :unit => "円")
+                = item.price
               .picture__bottom
                 .picture__bottom--text
                   = item.name
