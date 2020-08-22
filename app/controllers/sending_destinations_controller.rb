@@ -1,6 +1,8 @@
 class SendingDestinationsController < ApplicationController
   
   # validates :destination_last_name ,:destination_first_name,:destination_last_name_kana,:destination_first_name_kana,:post_code,:city ,:house_number,:buildingname_and_roomnumber,:tel, :prefecture_id, :presence: true
+  before_action :check_user_signed_in, only: [:new, :create]
+  
   def new
     @sending_destination = SendingDestination.new
   end
@@ -33,6 +35,13 @@ class SendingDestinationsController < ApplicationController
   def sending_destination_params
     # params.require(:sending_destination).permit(:destination_last_name ,:destination_first_name,:destination_last_name_kana,:destination_first_name_kana,:post_code,:city ,:house_number,:buildingname_and_roomnumber,:tel).merge(user_id: current_user.id, prefecture_id: [params.prefecture_id])
     params.require(:sending_destination).permit(:destination_last_name ,:destination_first_name,:destination_last_name_kana,:destination_first_name_kana,:post_code,:city ,:house_number,:buildingname_and_roomnumber,:tel, :prefecture_id).merge(user_id: current_user.id)
+  end
+
+  def check_user_signed_in
+    if user_signed_in? == false
+      flash[:notice] = "ログインしてください"
+      redirect_to root_path
+    end
   end
 
 
