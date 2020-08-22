@@ -56,6 +56,27 @@ body {
           background-color:#3CCACE;
         }
       }
+      #result-first_name{
+        display: none;
+      }
+      #result-last_name{
+        display: none;
+      }
+      #result-first_name_kana{
+        display: none;
+      }
+      #result-last_name_kana{
+        display: none;
+      }
+      #result-postcode{
+        display: none;
+      }
+      #result-prefecture{
+        display: none;
+      }
+      #result-city{
+        display: none;
+      }
       &__input {
         width: 100%;
         margin-top: 5px;
