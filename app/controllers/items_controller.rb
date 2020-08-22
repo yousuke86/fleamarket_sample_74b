@@ -25,18 +25,13 @@ class ItemsController < ApplicationController
   end
 
   def new
-    if user_signed_in?
-      @item = Item.new
-      @item.images.new
-      #セレクトボックスの初期値設定
-      @category_parent_array = ["---"]
-      #データベースから、親カテゴリーのみ抽出し、配列化
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
-    else
-      flash[:notice] = "ログインしてください"
-      redirect_to root_path
+    @item = Item.new
+    @item.images.new
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["---"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
     end
   end
 
