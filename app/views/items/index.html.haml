@@ -84,8 +84,12 @@
     .contents_pickup
       %h1.contents_feature 
       ピックアップカテゴリー
-      %h3.list_contents 
-        新規投稿商品
+      - if user_signed_in?
+        %h3.list_contents 
+          = link_to "アーカイブ", list_item_path(current_user), class: "list_contents"
+      - else
+        %h3.list_contents 
+          = link_to "アーカイブ", new_user_session_path, class: "list_contents"
       %ul.how_use
         - @items.each do |item|
           .usage1
@@ -93,17 +97,21 @@
               .picture_top
                 - item.images.first(1).each do |image|
                   = image_tag image.image_url.to_s, class: "picture__top--item"
-              .picture__top--price
+              .picture__top--price 
                 ¥
-                = number_to_currency(item.price, :unit => "円")
+                = item.price
               .picture__bottom
-                %p.picture__bottom--text
+                .picture__bottom--text
                   = item.name
     .contents_archive
       %h1.contents_feature 
       ピックアップブランド
-      %h3.list_contents 
-        アーカイバ
+      - if user_signed_in?
+        %h3.list_contents 
+          = link_to "出品商品一覧", list_item_path(current_user), class: "list_contents"
+      - else
+        %h3.list_contents 
+          = link_to "出品商品一覧", new_user_session_path, class: "list_contents"
       %ul.how_use
         - @items.each do |item|
           .usage1
@@ -111,13 +119,12 @@
               .picture_top
                 - item.images.first(1).each do |image|
                   = image_tag image.image_url.to_s, class: "picture__top--item"
-              .picture__top--price
+              .picture__top--price 
                 ¥
-                = number_to_currency(item.price, :unit => "円")
+                = item.price
               .picture__bottom
                 .picture__bottom--text
                   = item.name
-
 
 
 
