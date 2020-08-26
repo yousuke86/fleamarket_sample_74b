@@ -1,6 +1,8 @@
 class CardsController < ApplicationController
   require "payjp"
 
+  before_action :check_user_signed_in, only: [:new, :pay, :delete, :show]
+
   def new
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
@@ -40,6 +42,14 @@ class CardsController < ApplicationController
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+
+  private
+  def check_user_signed_in
+    if user_signed_in? == false
+      flash[:notice] = "ログインしてください"
+      redirect_to root_path
     end
   end
 

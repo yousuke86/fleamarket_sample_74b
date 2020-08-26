@@ -4,7 +4,9 @@ class ItemsController < ApplicationController
 
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :check_user_signed_in, only: [:new, :create, :edit, :update, :destroy, :purchase]
+
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy, :purchase]
 
   before_action :set_category_parent_array, only: [:create, :edit, :update]
 
@@ -127,12 +129,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  private
+  def check_user_signed_in
+    if user_signed_in? == false
+      flash[:notice] = "ログインしてください"
+      redirect_to root_path
+    end
+  end
+
   def set_category_parent_array
     @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
-  end
-  
+  end  
+
 end

@@ -21,6 +21,7 @@ body {
   background-color: #3CCACE;
   color: white;
   text-align: center;
+
 }
 .account-page {
   width: 60%;
@@ -106,9 +107,8 @@ body {
         &__wrap {
           align-items: center;
           display: flex;
-          #input-birth_day{         //モデルを作成後、適切なid名に変更する必要あり(suzuki)
+          #input-birth_day{
             @include input_form();
-
           }
           p {
             font-size: 15px;
@@ -119,7 +119,33 @@ body {
         }
       }
     }
-
+    #result-nickname{
+      display: none;
+    }
+    #result-email{
+      display: none;
+    }
+    #result-password{
+      display: none;
+    }
+    #result-password_confirmation{
+      display: none;
+    }
+    #result-first_name{
+      display: none;
+    }
+    #result-last_name{
+      display: none;
+    }
+    #result-first_name_kana{
+      display: none;
+    }
+    #result-last_name_kana{
+      display: none;
+    }
+    #result-birth{
+      display: none;
+    }
     .actions {
       width: 100%;
       background-color: #3CCACE;
