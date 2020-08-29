@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   before_action :check_user_signed_in, only: [:new, :create, :edit, :update, :destroy, :purchase]
 
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy, :purchase]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   before_action :set_category_parent_array, only: [:create, :edit, :update]
 
