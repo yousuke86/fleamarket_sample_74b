@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   
   def show
     @user = current_user
+    @sending_destination = SendingDestination.where(user_id: current_user.id)
 
     # 現在出品中の商品
     @saling_items = @user.saling_items

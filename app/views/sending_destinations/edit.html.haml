@@ -1,1 +1,101 @@
-sending_destinations_editページ
+.header_index
+  = render partial: 'items/header_index' 
+  
+
+
+.address-page
+  .main-head
+    %h2 発送元・お届け先住所入力
+
+  .address-form
+    = form_for @sending_destination do |f|
+      .field
+        .field__label
+          %p お名前（全角）
+          %span.field__label__require
+            必須
+        .field__input-half
+          .field__input-half__name
+            = f.text_field :destination_first_name ,id: "input-first_name"
+          .field__input-half__name
+            = f.text_field :destination_last_name ,id: "input-last_name"
+        .field__error-text
+          %p#result-first_name 苗字を入力してください
+        .field__error-text
+          %p#result-last_name お名前を入力してください
+      
+      .field
+        .field__label
+          %p お名前カナ（全角）
+          %span.field__label__require
+            必須
+        .field__input-half
+          .field__input-half__name
+            = f.text_field :destination_first_name_kana ,id: "input-first_name_kana"
+          .field__input-half__name
+            = f.text_field :destination_last_name_kana ,id: "input-last_name_kana"
+        .field__error-text
+          %p#result-first_name_kana 苗字（カナ）を入力してください
+        .field__error-text
+          %p#result-last_name_kana お名前（カナ）を入力してください
+          
+      .field
+        .field__label
+          %p 郵便番号
+          %span.field__label__require
+            必須
+        .field__input
+          = f.text_field :post_code ,id: "input-post_code"
+        .field__error-text
+          %p#result-postcode 郵便番号を入力してください
+
+      .field
+        .field__label
+          %p 都道府県
+          %span.field__label__require
+            必須
+        .field__input--prefecture
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture
+        .field__error-text
+          %p#result-prefecture 都道府県を選択してください
+
+      .field
+        .field__label
+          %p 市町村
+          %span.field__label__require
+            必須
+        .field__input
+          = f.text_field :city ,id: "input-city"
+        .field__error-text
+          %p#result-city 市町村を入力してください
+      .field
+        .field__label
+          %p 建物名
+          %span.field__label__require
+            任意
+        .field__input
+          = f.text_field :buildingname_and_roomnumber ,id: "input-buildingname_and_roomnumber"
+        .field__error-text
+        
+      .field
+        .field__label
+          %p 部屋番号
+          %span.field__label__require
+            任意
+        .field__input
+          = f.text_field :house_number ,id: "input-house_number"
+        .field__error-text
+      .field
+        .field__label
+          %p 電話番号
+          %span.field__label__require
+            任意
+        .field__input
+          = f.text_field :tel ,id: "input-tel"
+        .field__error-text
+      .actions
+        = f.submit "次へ", class: 'btn'
+
+
+.footer_index
+  = render partial: 'items/footer_index' 
