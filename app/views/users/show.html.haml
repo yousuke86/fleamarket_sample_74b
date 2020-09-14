@@ -60,8 +60,7 @@
       %list 
         = link_to '本人情報',edit_user_registration_path
       %list 
-        -# sending_destinationのnewに飛ぶかeditに飛ぶか確認（三輪）
-        = link_to '発送・お届け先住所',  new_sending_destination_path
+        = link_to '発送・お届け先住所',  edit_sending_destination_path(@sending_destination.ids)
       %list 
         = link_to 'カード情報',new_card_path
       %list 
