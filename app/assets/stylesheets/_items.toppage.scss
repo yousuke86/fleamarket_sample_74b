@@ -87,15 +87,18 @@ a{
           position: absolute;
           top: 100%;
           left: 0;
-          width: 200%;
+          width: 200px;
+          border:thin solid rgb(228, 225, 225);
           .font {
             text-decoration: none;
             color: black;
+            
           }
         }
         .brand__btn {
           text-decoration: none;
           color: black;
+          
         }
         li.brand {
           padding: 0 0 0 40px;
